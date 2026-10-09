@@ -15,10 +15,10 @@
 <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
 <style>
   :root{
-    --ink:#241a0c; --ink-soft:#4b3a20;
+    --ink:#2b2a26; --ink-soft:#5e5a52;
     --gold:#b8893b; --gold-br:#e8c572; --gold-dp:#8a5e1e;
     --gold-foil:linear-gradient(180deg,#f6de9b 0%,#d8ab4f 38%,#c6912f 62%,#8a5e1e 100%);
-    --ember:#a8441d; --terra:#5c3010; --reed:#4c5e3b;
+    --ember:#a8441d; --terra:#9c3f18; --reed:#4c5e3b;
     --disp:'Cormorant Garamond',Garamond,Georgia,serif;
     --body:'EB Garamond',Garamond,Georgia,serif;
     --cap:'Cinzel',Georgia,serif;
@@ -33,13 +33,13 @@
   #book{width:min(92vw,600px);aspect-ratio:.72;max-height:94vh}
   #book3d{position:relative;filter:drop-shadow(0 28px 50px rgba(0,0,0,.6)) drop-shadow(0 8px 16px rgba(0,0,0,.5))}
 
-  /* ---------- a papyrus page ---------- */
-  .page{container-type:size;overflow:hidden;color:var(--ink);background-color:#d9c38f;
+  /* ---------- a cream magazine page (original deck style) ---------- */
+  .page{container-type:size;overflow:hidden;color:var(--ink);background-color:#f8f3e8;
     background-image:
-      radial-gradient(78% 64% at 50% 48%,rgba(247,239,216,.5),rgba(247,239,216,.12) 58%,transparent 78%),
-      url("media/papyrus.webp");
-    background-repeat:no-repeat,no-repeat;background-position:center,center;background-size:auto,cover;
-    box-shadow:inset 0 0 6cqh rgba(66,44,16,.46),inset 0 0 1.4cqh rgba(44,28,8,.5)}
+      radial-gradient(132% 104% at 50% -8%,#fdfbf5 0%,#f6eedc 56%,#efe3cb 100%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 0.42 0 0 0 0 0.36 0 0 0 0 0.24 0 0 0 0.028 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat:no-repeat,repeat;background-position:center,center;background-size:cover,200px 200px;
+    box-shadow:inset 0 0 3.4cqh rgba(120,95,45,.12),inset 0 0 0 1px rgba(120,95,45,.1)}
   .page .pg{position:relative;width:100%;height:100%;padding:5cqh 7cqw 4.4cqh;display:flex;flex-direction:column}
   :root{--u:1cqh}
 
