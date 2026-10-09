@@ -3,319 +3,246 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Egypt Eclipse 2027 · The Partnership Book</title>
-<meta name="description" content="Partner with Egypt Eclipse: totality in Luxor on 2 August 2027. An illuminated partnership book.">
+<title>Egypt Eclipse 2027 · The Partnership</title>
+<meta name="description" content="Partner with Egypt Eclipse: totality in Luxor on 2 August 2027.">
 <meta name="robots" content="noindex">
-<meta property="og:title" content="Egypt Eclipse 2027 · The Partnership Book">
+<meta property="og:title" content="Egypt Eclipse 2027 · The Partnership">
 <meta property="og:image" content="media/eclipse-luxor.jpg">
 <link rel="icon" href="media/ee-icon-04.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
 <style>
   :root{
-    --ink:#231a0c; --ink-soft:#4b3a20;
+    --ink:#241a0c; --ink-soft:#4b3a20;
     --gold:#b8893b; --gold-br:#e8c572; --gold-dp:#8a5e1e;
     --gold-foil:linear-gradient(180deg,#f6de9b 0%,#d8ab4f 38%,#c6912f 62%,#8a5e1e 100%);
-    --leather:#17140d; --ember:#a8441d; --reed:#4c5e3b;
-    --pap:#e6d3a6;
+    --ember:#a8441d; --terra:#5c3010; --reed:#4c5e3b;
     --disp:'Cormorant Garamond',Garamond,Georgia,serif;
     --body:'EB Garamond',Garamond,Georgia,serif;
     --cap:'Cinzel',Georgia,serif;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html,body{height:100%;overflow:hidden}
-  body{background:radial-gradient(120% 92% at 50% 16%,#38281a 0%,#1b120a 48%,#0a0603 100%);
+  body{background:radial-gradient(120% 92% at 50% 16%,#2a2016 0%,#14100a 48%,#080503 100%);
     font-family:var(--body);color:var(--ink);-webkit-font-smoothing:antialiased;
     display:flex;align-items:center;justify-content:center}
-  body::before{content:"";position:fixed;inset:0;background:radial-gradient(58% 48% at 50% 46%,rgba(232,197,114,.10),transparent 70%);pointer-events:none}
-  body::after{content:"";position:fixed;inset:0;box-shadow:inset 0 0 42vw rgba(0,0,0,.62);pointer-events:none}
-  #stage{position:relative;z-index:2;width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:3.2vh 3vw;perspective:1700px;perspective-origin:50% 40%}
-  /* bigger page, with breathing room (margin) top & bottom */
-  #book{width:min(92vw,588px);aspect-ratio:.70;max-height:94vh}
-  /* the closed book reads as a 3D tome; it flattens as it opens */
-  #book3d{position:relative;transform-style:preserve-3d;transition:transform 1.1s cubic-bezier(.2,.7,.2,1);will-change:transform}
-  #book{filter:drop-shadow(0 36px 56px rgba(0,0,0,.62)) drop-shadow(0 10px 18px rgba(0,0,0,.5))}
-  body:not(.opened) #book3d{transform:rotateX(7deg) rotateY(-24deg)}
-  body.opened #book3d{transform:none}
-  #book3d .thick{position:absolute;top:1.2%;bottom:1.2%;transition:opacity .55s;pointer-events:none;backface-visibility:hidden}
-  body.opened #book3d .thick{opacity:0}
-  .thick.right{right:0;width:38px;transform-origin:right center;transform:rotateY(90deg);
-    background:repeating-linear-gradient(0deg,#f1e6ca 0 1.4px,#c4ac79 1.4px 2.8px);
-    box-shadow:inset -10px 0 18px rgba(70,48,18,.5),inset 0 0 8px rgba(70,48,18,.4)}
-  .thick.bottom{left:0;right:0;top:auto;bottom:0;height:38px;transform-origin:center bottom;transform:rotateX(-90deg);
-    background:repeating-linear-gradient(90deg,#f1e6ca 0 1.4px,#c4ac79 1.4px 2.8px);box-shadow:inset 0 -10px 16px rgba(70,48,18,.5)}
-  .thick.spine{left:0;width:38px;transform-origin:left center;transform:rotateY(-90deg);
-    background:linear-gradient(90deg,#1a150d,#372a18 50%,#0c0a06);box-shadow:inset 0 0 16px rgba(0,0,0,.7)}
+  body::after{content:"";position:fixed;inset:0;box-shadow:inset 0 0 40vw rgba(0,0,0,.6);pointer-events:none}
+  #stage{position:relative;z-index:2;width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:3vh 3vw}
+  #book{width:min(92vw,600px);aspect-ratio:.72;max-height:94vh}
+  #book3d{position:relative;filter:drop-shadow(0 28px 50px rgba(0,0,0,.6)) drop-shadow(0 8px 16px rgba(0,0,0,.5))}
 
-  /* ===== papyrus page ===== */
-  /* real aged papyrus photo, with a soft light wash in the centre so dark ink stays legible */
-  /* plain aged papyrus sheet, with a soft light wash in the centre so dark ink stays legible */
+  /* ---------- a papyrus page ---------- */
   .page{container-type:size;overflow:hidden;color:var(--ink);background-color:#d9c38f;
     background-image:
-      radial-gradient(74% 60% at 50% 49%,rgba(246,237,212,.46),rgba(246,237,212,.12) 56%,transparent 76%),
+      radial-gradient(78% 64% at 50% 48%,rgba(247,239,216,.5),rgba(247,239,216,.12) 58%,transparent 78%),
       url("media/papyrus.webp");
-    background-repeat:no-repeat,no-repeat;
-    background-position:center,center;
-    background-size:auto,cover;
-    box-shadow:inset 0 0 7cqh rgba(66,44,16,.5),inset 0 0 1.6cqh rgba(44,28,8,.55)}
-  .page .pg{position:relative;width:100%;height:100%;padding:6.4cqh 8cqw 6cqh;display:flex;flex-direction:column}
-  .page .pg::before,.page .pg::after{display:none}
+    background-repeat:no-repeat,no-repeat;background-position:center,center;background-size:auto,cover;
+    box-shadow:inset 0 0 6cqh rgba(66,44,16,.46),inset 0 0 1.4cqh rgba(44,28,8,.5)}
+  .page .pg{position:relative;width:100%;height:100%;padding:5cqh 7cqw 4.4cqh;display:flex;flex-direction:column}
   :root{--u:1cqh}
 
-  .rh{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--cap);font-size:1.95cqh;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-dp)}
-  .rh .sec{max-width:74%}
-  .rule{height:1px;background:linear-gradient(90deg,transparent,var(--gold) 12%,var(--gold) 88%,transparent);margin:1.8cqh 0 2.6cqh;position:relative}
-  .rule::after{content:"";position:absolute;left:50%;top:50%;width:4.6cqh;height:4.6cqh;transform:translate(-50%,-50%) rotate(45deg);border:1px solid var(--gold);background:#e6d3a6}
-  h2{font-family:var(--disp);font-weight:500;font-size:6cqh;line-height:1.07;color:#6a3a16;margin-bottom:2.4cqh}
-  h2.sm{font-size:5cqh}
+  /* magazine running header */
+  .mast{display:flex;justify-content:space-between;align-items:baseline;flex:0 0 auto;
+    font-family:var(--cap);font-size:1.45cqh;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-dp);
+    padding-bottom:.9cqh;border-bottom:1.5px solid rgba(138,94,30,.5);margin-bottom:2.2cqh}
+  .mast .mb{font-weight:600;color:var(--terra)}
+  .feat{flex:1 1 auto;min-height:0;display:flex;flex-direction:column}
+  .foot{flex:0 0 auto;display:flex;justify-content:space-between;align-items:baseline;
+    font-family:var(--cap);font-size:1.3cqh;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-dp);
+    padding-top:.9cqh;border-top:1px solid rgba(138,94,30,.4);margin-top:auto}
+
+  .kick{font-family:var(--cap);font-weight:600;font-size:1.55cqh;letter-spacing:.2em;text-transform:uppercase;color:var(--ember);margin-bottom:1cqh}
+  h2{font-family:var(--disp);font-weight:600;font-size:4.4cqh;line-height:1.06;color:var(--terra);margin-bottom:1.4cqh;letter-spacing:-.005em}
+  h2.sm{font-size:3.7cqh}
   h2 em{font-style:italic;color:var(--ember)}
-  .lead{font-family:var(--disp);font-size:3.3cqh;line-height:1.4;color:#3a2c18;margin-bottom:2cqh}
-  p.t{font-size:2.8cqh;line-height:1.52;margin-bottom:1.7cqh;color:var(--ink)}
-  .cont{font-family:var(--disp);font-style:italic;font-size:2.3cqh;color:var(--gold-dp);letter-spacing:.04em;margin-bottom:1cqh}
-  .drop::first-letter{font-family:var(--disp);font-weight:600;float:left;font-size:10cqh;line-height:.8;padding:.5cqh .7cqw 0 0;color:var(--ember)}
-  .fn{font-family:var(--disp);font-style:italic;font-size:2.3cqh;color:var(--ink-soft);margin-top:auto;padding-top:1.6cqh}
-  .body{flex:1 1 auto;min-height:0;display:flex;flex-direction:column}
-  .folio{text-align:center;font-family:var(--cap);font-size:2cqh;letter-spacing:.3em;color:var(--gold-dp);margin-top:auto;padding-top:1.2cqh}
+  .deck{font-family:var(--disp);font-size:2.6cqh;line-height:1.34;color:#44331c;margin-bottom:1.7cqh}
+  p.t{font-size:2.02cqh;line-height:1.44;margin-bottom:.9cqh;text-align:justify;hyphens:auto}
+  .cols2{columns:2;column-gap:4.5cqw;column-rule:1px solid rgba(138,94,30,.22)}
+  .cols2 p.t{margin-bottom:.8cqh}
+  .cols2 .drop::first-letter{font-size:7.2cqh}
+  .drop::first-letter{font-family:var(--disp);font-weight:600;float:left;font-size:8.2cqh;line-height:.72;padding:.5cqh .7cqw 0 0;color:var(--ember)}
+  .fn{font-family:var(--disp);font-style:italic;font-size:1.9cqh;color:var(--ink-soft);margin-top:1.1cqh}
+  .pq{font-family:var(--disp);font-style:italic;font-size:3cqh;line-height:1.3;color:var(--ember);text-align:center;border-top:1px solid rgba(138,94,30,.5);border-bottom:1px solid rgba(138,94,30,.5);padding:1.3cqh 2cqw;margin:1.4cqh 0}
 
-  .stats{display:flex;gap:4cqw;margin:1.4cqh 0 2.4cqh}
+  .stats{display:flex;gap:3.4cqw;margin:1cqh 0 1.6cqh}
   .stat{flex:1}
-  .stat b{display:block;font-family:var(--disp);font-weight:500;font-size:6.6cqh;line-height:1;color:#8a3d12}
-  .stat span{display:block;font-family:var(--cap);font-size:1.6cqh;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-top:.9cqh;line-height:1.28}
-  .stats.q{flex-wrap:wrap;gap:2cqh 4cqw}
-  .stats.q .stat{flex:0 0 42%}
-  .stats.q .stat b{font-size:5.2cqh}
+  .stat b{display:block;font-family:var(--disp);font-weight:600;font-size:4.6cqh;line-height:1;color:#8a3d12}
+  .stat span{display:block;font-family:var(--cap);font-size:1.35cqh;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin-top:.6cqh;line-height:1.26}
+  .stats.q{flex-wrap:wrap;gap:1.4cqh 3.4cqw}.stats.q .stat{flex:0 0 42%}.stats.q .stat b{font-size:4cqh}
 
-  .plate{position:relative;margin-top:2cqh;border:1px solid var(--gold-dp);padding:1cqh;background:linear-gradient(135deg,#fbf3df,#e7d2a6);box-shadow:0 5cqh 7cqh rgba(80,50,15,.22)}
+  figure.plate{position:relative;margin:0;border:1px solid var(--gold-dp);padding:.7cqh;background:linear-gradient(135deg,#fbf3df,#e7d2a6);box-shadow:0 2cqh 4cqh rgba(80,50,15,.22)}
   .plate .fr{position:relative;overflow:hidden;border:1px solid rgba(138,94,30,.5)}
-  .plate img,.plate video{display:block;width:100%;height:30cqh;object-fit:cover}
-  .plate.mid img,.plate.mid video{height:27cqh}
-  .plate figcaption{font-family:var(--cap);font-size:1.6cqh;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-dp);text-align:center;padding-top:1cqh}
+  .plate img,.plate video{display:block;width:100%;height:100%;object-fit:cover}
+  .plate figcaption{font-family:var(--cap);font-size:1.3cqh;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-dp);text-align:center;padding-top:.7cqh}
+  .split{display:grid;gap:3cqw;align-items:start}
+  .split.img-r{grid-template-columns:1fr 38%}
+  .split.img-l{grid-template-columns:38% 1fr}
+  .halfimg{height:34cqh}
 
-  ul.ticks{list-style:none;margin:.4cqh 0}
-  ul.ticks li{position:relative;padding-left:3.6cqw;font-size:2.65cqh;line-height:1.36;margin-bottom:1.15cqh}
-  ul.ticks li::before{content:"";position:absolute;left:0;top:.6em;width:1.5cqh;height:1.5cqh;transform:rotate(45deg);border:1px solid var(--gold);background:rgba(184,137,59,.28)}
+  ul.ticks{list-style:none;margin:.3cqh 0}
+  ul.ticks li{position:relative;padding-left:2.8cqw;font-size:1.95cqh;line-height:1.34;margin-bottom:.7cqh}
+  ul.ticks li::before{content:"";position:absolute;left:0;top:.6em;width:1.1cqh;height:1.1cqh;transform:rotate(45deg);border:1px solid var(--gold);background:rgba(184,137,59,.3)}
   ul.ticks li b{font-weight:600}
-  h3{font-family:var(--cap);font-weight:600;font-size:2.05cqh;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-dp);margin:1.6cqh 0 1cqh}
+  ul.ticks.two{columns:2;column-gap:4cqw}
+  h3{font-family:var(--cap);font-weight:600;font-size:1.7cqh;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-dp);margin:1.1cqh 0 .6cqh}
   h3:first-child{margin-top:0}
-  .press{font-size:2.6cqh;line-height:1.6}
+  .press{font-size:1.95cqh;line-height:1.5}
 
-  .cards{display:grid;grid-template-columns:1fr 1fr;gap:1.6cqh 3cqw}
-  .card{border:1px solid rgba(138,94,30,.4);border-left:3px solid var(--gold);padding:1.6cqh 2.2cqw;background:rgba(255,250,236,.5)}
-  .card h4{font-family:var(--cap);font-weight:600;font-size:1.85cqh;letter-spacing:.08em;text-transform:uppercase;color:#6a3a16;margin-bottom:.7cqh}
-  .card p{font-size:2.25cqh;line-height:1.34}
+  .cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.2cqh 2.4cqw}
+  .card{border-top:2px solid var(--gold);padding-top:.8cqh}
+  .card h4{font-family:var(--cap);font-weight:600;font-size:1.5cqh;letter-spacing:.06em;text-transform:uppercase;color:#6a3a16;margin-bottom:.4cqh}
+  .card p{font-size:1.72cqh;line-height:1.3}
 
   .itin{border-top:1px solid rgba(138,94,30,.4)}
-  .itin .row{display:grid;grid-template-columns:19cqw 1fr;gap:2.4cqw;padding:1.5cqh 0;border-bottom:1px solid rgba(138,94,30,.22);font-size:2.45cqh;line-height:1.3}
-  .itin .d{font-family:var(--disp);font-weight:600;font-size:2.7cqh;color:#8a3d12}
+  .itin .row{display:grid;grid-template-columns:15cqw 1fr;gap:2cqw;padding:.95cqh 0;border-bottom:1px solid rgba(138,94,30,.2);font-size:1.95cqh;line-height:1.28}
+  .itin .d{font-family:var(--disp);font-weight:600;font-size:2.15cqh;color:#8a3d12}
   .itin .w{color:var(--ink-soft);font-style:italic}
 
-  .ways{margin-top:1.2cqh}
-  .way{display:grid;grid-template-columns:1fr auto;gap:1.5cqw;align-items:baseline;padding:1cqh 0;border-bottom:1px solid rgba(138,94,30,.22)}
-  .way .nm{font-size:2.5cqh} .way .nm span{display:block;font-style:italic;font-size:1.9cqh;color:var(--ink-soft)}
-  .way .mt{text-align:right;font-family:var(--disp);font-size:2.9cqh;color:#8a3d12;white-space:nowrap}
-  .way .bar{grid-column:1/-1;height:1.2cqh;margin-top:.5cqh;border-radius:2px;background:var(--b,#b88a4a)}
-  .legend{display:flex;flex-wrap:wrap;gap:.6cqh 3cqw;font-size:1.95cqh;color:var(--ink-soft);margin-top:1.4cqh}
-  .legend i{display:inline-block;width:2.4cqw;height:1.4cqh;margin-right:1cqw;vertical-align:middle;border-radius:1px}
+  .ways{margin-top:.6cqh}
+  .way{display:grid;grid-template-columns:1fr auto;gap:1.4cqw;align-items:baseline;padding:.62cqh 0;border-bottom:1px solid rgba(138,94,30,.2)}
+  .way .nm{font-size:2cqh}.way .nm span{display:block;font-style:italic;font-size:1.5cqh;color:var(--ink-soft)}
+  .way .mt{text-align:right;font-family:var(--disp);font-size:2.2cqh;color:#8a3d12;white-space:nowrap}
+  .way .bar{grid-column:1/-1;height:.95cqh;margin-top:.35cqh;border-radius:2px;background:var(--b,#b88a4a)}
+  .legend{display:flex;flex-wrap:wrap;gap:.5cqh 2.6cqw;font-size:1.6cqh;color:var(--ink-soft);margin-top:1cqh}
+  .legend i{display:inline-block;width:2cqw;height:1.1cqh;margin-right:.8cqw;vertical-align:middle;border-radius:1px}
 
-  /* full-page clip / photo leaf */
-  .page.leafimg{background:#140d06}
+  /* full-bleed photo / clip feature */
+  .page.leafimg{background:#120c05}
   .leafimg .pg{padding:0}
-  .leafimg .pg::before{content:"";display:block;position:absolute;inset:2.4cqh 2.6cqw;border:1px solid rgba(232,197,114,.5);z-index:3;pointer-events:none}
-  .leafimg .pg::after{display:none}
   .leafimg .photo{position:absolute;inset:0}
   .leafimg .photo img,.leafimg .photo video{width:100%;height:100%;object-fit:cover}
-  .leafimg .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,7,2,.34) 0%,rgba(10,7,2,.04) 26%,rgba(10,7,2,.5) 52%,rgba(10,7,2,.96) 100%)}
-  .leafimg .cap{position:absolute;left:0;right:0;bottom:0;z-index:4;padding:9cqh 8cqw 7cqh;color:#faf1dd;
-    background:linear-gradient(180deg,transparent 0%,rgba(8,6,2,.66) 30%,rgba(8,6,2,.9) 70%)}
-  .leafimg .rh{color:var(--gold-br);text-shadow:0 1px 6px rgba(0,0,0,.8)}
-  .leafimg .rule{background:linear-gradient(90deg,transparent,var(--gold-br) 12%,var(--gold-br) 88%,transparent);opacity:.8}
-  .leafimg h2{color:#fff;text-shadow:0 2px 4px rgba(0,0,0,.9),0 2px 20px rgba(0,0,0,.7)}
-  .leafimg .lead{color:#fbf2e0;text-shadow:0 1px 3px rgba(0,0,0,.95),0 1px 12px rgba(0,0,0,.7)}
-  .leafimg .when{font-family:var(--cap);font-size:1.85cqh;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-br);margin-top:1.2cqh;text-shadow:0 1px 6px rgba(0,0,0,.9)}
+  .leafimg .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,7,2,.3) 0%,rgba(10,7,2,.03) 24%,rgba(10,7,2,.46) 52%,rgba(10,7,2,.95) 100%)}
+  .leafimg .cap{position:absolute;left:0;right:0;bottom:0;z-index:4;padding:9cqh 7cqw 5cqh;color:#faf1dd;
+    background:linear-gradient(180deg,transparent 0%,rgba(8,6,2,.6) 28%,rgba(8,6,2,.9) 68%)}
+  .leafimg .fr2{position:absolute;inset:2.2cqh 2.4cqw;border:1px solid rgba(232,197,114,.5);z-index:3;pointer-events:none}
+  .leafimg .mast{color:var(--gold-br);border-bottom-color:rgba(232,197,114,.5);text-shadow:0 1px 5px rgba(0,0,0,.8)}
+  .leafimg .mast .mb{color:#fff}
+  .leafimg .kick{color:var(--gold-br);text-shadow:0 1px 6px rgba(0,0,0,.9)}
+  .leafimg h2{color:#fff;text-shadow:0 2px 4px rgba(0,0,0,.9),0 2px 18px rgba(0,0,0,.7)}
+  .leafimg .deck{color:#fbf2e0;text-shadow:0 1px 3px rgba(0,0,0,.95),0 1px 12px rgba(0,0,0,.6)}
+  .leafimg p.t{color:#fbf2e0;text-shadow:0 1px 3px rgba(0,0,0,.95)}
+  .leafimg .when{font-family:var(--cap);font-size:1.6cqh;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-br);margin-top:1cqh;text-shadow:0 1px 6px rgba(0,0,0,.9)}
   .leafimg .fn{color:#efe4cedd;text-shadow:0 1px 5px rgba(0,0,0,.9)}
-  .leafimg .rule::after{background:#120c05}
-  .leafimg p.t{color:#fbf2e0;text-shadow:0 1px 3px rgba(0,0,0,.95),0 1px 10px rgba(0,0,0,.6)}
 
-  /* ===== carved Egyptian COVER / BACK ===== */
-  .page.hard{background:#14110b;color:#f0dca8}
+  /* ---------- MAGAZINE COVER / BACK ---------- */
+  .page.hard{background:#080a14;color:#fff}
   .page.hard .pg{padding:0}
-  .page.hard .pg::before,.page.hard .pg::after{display:none}
-  .cov{position:absolute;inset:0;overflow:hidden;background:#0c0906}
-  .cov .art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-  .cov .vig{position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(6,5,3,.16) 0%,transparent 26%,transparent 52%,rgba(6,5,3,.55) 80%,rgba(6,5,3,.9) 100%)}
-  /* cracked-stone veins */
-  .cov .cracks{position:absolute;inset:0;opacity:.5}
-  /* bronze scroll-rod down the left */
-  .cov .rod{position:absolute;left:4.5cqw;top:6cqh;bottom:6cqh;width:5.4cqw;border-radius:3cqw;
-    background:linear-gradient(90deg,#3a2a12,#b98a3e 30%,#f0cf86 50%,#9c7330 70%,#2f2210);
-    box-shadow:0 2px 10px rgba(0,0,0,.6),inset 0 0 6px rgba(0,0,0,.5)}
-  .cov .rod::before,.cov .rod::after{content:"";position:absolute;left:-0.7cqw;right:-0.7cqw;height:7cqh;
-    background:repeating-linear-gradient(45deg,#2f2210 0 3px,#caا 3px 6px);
-    background:repeating-linear-gradient(45deg,#2a1d0c 0 4px,#b58a40 4px 7px);
-    border-radius:2cqw;box-shadow:inset 0 0 6px rgba(0,0,0,.6)}
-  .cov .rod::before{top:-2cqh}.cov .rod::after{bottom:-2cqh}
-  /* carved cartouche panel */
-  .cov .cartouche{position:absolute;left:15cqw;top:16cqh;width:20cqw;height:34cqh;border-radius:40cqw/8cqh;
-    background:linear-gradient(135deg,#241d13,#15110b);border:1px solid #4a3a1e;
-    box-shadow:inset 0 0 3cqh rgba(0,0,0,.7),0 1px 0 rgba(232,197,114,.12)}
-  .cov .cartouche i{position:absolute;left:18%;right:18%;height:1.5cqh;background:#0d0a06;box-shadow:inset 0 1px 1px rgba(0,0,0,.8),0 1px 0 rgba(232,197,114,.08);border-radius:1px}
-  /* medallion */
-  .cov .medal{position:absolute;top:30cqh;left:50%;width:38cqw;height:38cqw;transform:translateX(-30%);border-radius:50%;
-    background:radial-gradient(circle at 42% 38%,#f3d388,#c6912f 52%,#8a5e1e 78%,#5c3d12);
-    box-shadow:0 2px 14px rgba(0,0,0,.6),inset 0 0 0 .9cqw #7a5216,inset 0 0 3cqh rgba(0,0,0,.35)}
-  .cov .medal::before{content:"";position:absolute;inset:7%;border-radius:50%;border:1px dashed #6e4c16;opacity:.7}
-  .cov .burst{position:absolute;inset:14%;background:
-     conic-gradient(from 0deg,#6a4714 0 6deg,transparent 6deg 45deg,#6a4714 45deg 51deg,transparent 51deg 90deg,#6a4714 90deg 96deg,transparent 96deg 135deg,#6a4714 135deg 141deg,transparent 141deg 180deg,#6a4714 180deg 186deg,transparent 186deg 225deg,#6a4714 225deg 231deg,transparent 231deg 270deg,#6a4714 270deg 276deg,transparent 276deg 315deg,#6a4714 315deg 321deg,transparent 321deg 360deg);
-     opacity:.55}
-  .cov .oct{position:absolute;inset:26%;background:linear-gradient(135deg,#efcf86,#b9872f);
-    clip-path:polygon(30% 0,70% 0,100% 30%,100% 70%,70% 100%,30% 100%,0 70%,0 30%);
-    box-shadow:inset 0 0 2cqh rgba(0,0,0,.4),0 1px 2px rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center}
-  .cov .eye{width:52%;height:52%;border-radius:50%;background:radial-gradient(circle,#140d08 44%,#c6912f 46%,#8a5e1e 70%,transparent 72%)}
-  /* scarab corners */
-  .cov .scarab{position:absolute;width:11cqw;height:11cqw;opacity:.92}
-  .cov .scarab.b1{right:7cqw;top:9cqh}
-  .cov .scarab.b2{left:15cqw;bottom:9cqh}
-  .cov .scarab.b3{right:12cqw;bottom:14cqh}
-  /* embossed title */
-  .cov .ttl{position:absolute;left:0;right:0;bottom:15cqh;text-align:center;z-index:3}
-  .cov .pre{font-family:var(--cap);font-size:1.7cqh;letter-spacing:.34em;text-transform:uppercase;color:#b78f4e}
-  .cov .title{font-family:var(--cap);font-weight:600;font-size:6.6cqh;letter-spacing:.08em;line-height:1.04;margin-top:1.4cqh;
-    background:var(--gold-foil);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
-    filter:drop-shadow(0 1px 0 rgba(0,0,0,.6)) drop-shadow(0 2px 3px rgba(0,0,0,.5))}
-  .cov .sub{font-family:var(--disp);font-style:italic;font-size:2.8cqh;color:#dcb877;margin-top:.8cqh}
-  .cov .dates{position:absolute;left:0;right:0;bottom:7cqh;text-align:center;font-family:var(--cap);font-size:1.6cqh;letter-spacing:.24em;text-transform:uppercase;color:#9c7c46;z-index:3}
-  .back .ln{position:absolute;left:10cqw;right:10cqw;top:54%;text-align:center;font-family:var(--disp);font-style:italic;font-size:3cqh;color:#dcb877;z-index:3}
-  .back .site{position:absolute;left:0;right:0;bottom:12cqh;text-align:center;font-family:var(--cap);letter-spacing:.24em;text-transform:uppercase;font-size:1.8cqh;z-index:3;
-    background:var(--gold-foil);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .cov{position:absolute;inset:0;overflow:hidden}
+  .cov .art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 42%}
+  .cov .scrim{position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(6,8,20,.6) 0%,rgba(6,8,20,.12) 30%,rgba(6,8,20,.1) 50%,rgba(6,8,20,.6) 80%,rgba(6,8,20,.92) 100%)}
+  .cov .top{position:absolute;top:6.5cqh;left:7cqw;right:7cqw;z-index:3;text-align:center}
+  .cov .eyebrow{font-family:var(--cap);font-size:1.5cqh;letter-spacing:.34em;text-transform:uppercase;color:#e8c572;text-shadow:0 1px 8px rgba(0,0,0,.8)}
+  .cov .mh{font-family:var(--cap);font-weight:600;font-size:7.6cqh;letter-spacing:.04em;line-height:1;color:#fff;margin-top:1.2cqh;text-shadow:0 2px 20px rgba(0,0,0,.6)}
+  .cov .hr{width:34%;height:2px;background:linear-gradient(90deg,transparent,#e8c572,transparent);margin:1.6cqh auto 0}
+  .cov .lines{position:absolute;left:7cqw;right:7cqw;bottom:11cqh;z-index:3;text-align:center}
+  .cov .cl1{font-family:var(--disp);font-style:italic;font-weight:500;font-size:5.4cqh;line-height:1.02;color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.7)}
+  .cov .cl2{font-family:var(--cap);font-size:1.7cqh;letter-spacing:.14em;text-transform:uppercase;color:#f0dca8;margin-top:1.6cqh;text-shadow:0 1px 8px rgba(0,0,0,.9)}
+  .cov .teasers{margin-top:1.3cqh;display:flex;flex-direction:column;gap:.5cqh;font-family:var(--disp);font-size:2.3cqh;color:#ecdfc6;text-shadow:0 1px 8px rgba(0,0,0,.9)}
+  .cov .issue{position:absolute;left:0;right:0;bottom:5cqh;z-index:3;text-align:center;font-family:var(--cap);font-size:1.4cqh;letter-spacing:.24em;text-transform:uppercase;color:#c9a978;text-shadow:0 1px 6px rgba(0,0,0,.9)}
+  .cov.back .scrim{background:linear-gradient(180deg,rgba(6,8,20,.68),rgba(6,8,20,.82))}
+  .cov.back .mid{position:absolute;left:10cqw;right:10cqw;top:42%;z-index:3;text-align:center}
+  .cov.back .q{font-family:var(--disp);font-style:italic;font-size:3cqh;color:#f0dca8;text-shadow:0 1px 10px rgba(0,0,0,.8)}
+  .cov.back .site{margin-top:2cqh;font-family:var(--cap);font-size:1.6cqh;letter-spacing:.24em;text-transform:uppercase;background:var(--gold-foil);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 
   /* controls */
-  #hint{position:fixed;left:50%;bottom:4vh;transform:translateX(-50%);font-family:var(--cap);font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#e8c572;background:rgba(20,13,7,.5);border:1px solid rgba(232,197,114,.4);border-radius:40px;padding:9px 20px;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);transition:opacity .6s;z-index:40;pointer-events:none}
+  #hint{position:fixed;left:50%;bottom:4vh;transform:translateX(-50%);font-family:var(--cap);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#e8c572;background:rgba(20,13,7,.5);border:1px solid rgba(232,197,114,.4);border-radius:40px;padding:8px 18px;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);transition:opacity .6s;z-index:40;pointer-events:none}
   body.opened #hint{opacity:0}
   .nav{position:fixed;top:50%;transform:translateY(-50%);z-index:40;width:40px;height:66px;background:rgba(20,13,7,.42);color:#e8c572;font-size:22px;cursor:pointer;border:1px solid rgba(232,197,114,.35);display:flex;align-items:center;justify-content:center;transition:background .2s,opacity .3s}
   .nav:hover{background:rgba(20,13,7,.72)}
   .nav.prev{left:max(10px,env(safe-area-inset-left));border-radius:0 8px 8px 0}
   .nav.next{right:max(10px,env(safe-area-inset-right));border-radius:8px 0 0 8px}
   .nav[disabled]{opacity:.22;cursor:default}
-  #folioHud{position:fixed;left:50%;bottom:1.4vh;transform:translateX(-50%);font-family:var(--cap);font-size:11px;letter-spacing:.22em;color:#caa468;z-index:40}
+  #folioHud{position:fixed;left:50%;bottom:1.4vh;transform:translateX(-50%);font-family:var(--cap);font-size:10px;letter-spacing:.22em;color:#caa468;z-index:40}
   @media (max-width:620px){.nav{width:34px;height:54px;font-size:18px}}
-
-  @keyframes spin{to{transform:rotate(360deg)}}
-  @keyframes gleam{0%{background-position:0% 0}55%,100%{background-position:200% 0}}
-  .cov .burst{animation:spin 170s linear infinite}
-  .cov .title{background-size:220% 100%;animation:gleam 9s ease-in-out infinite}
-  @media (prefers-reduced-motion:reduce){.cov .burst,.cov .title{animation:none}.--portrait #book{filter:none}}
+  @keyframes gleam{0%{background-position:0 0}55%,100%{background-position:200% 0}}
 </style>
 </head>
 <body>
 <div id="stage">
   <div id="book3d"><div id="book">
   <div class="page hard">
-    <div class="pg"><div class="cov"><img class="art" src="media/cover.webp" alt="Egypt Eclipse, an ancient Egyptian tome"><div class="vig"></div><div class="ttl"><div class="title">EGYPT ECLIPSE</div><div class="sub">The Partnership</div></div><div class="dates">Luxor &amp; the Nile · 2027</div></div></div>
-  </div>
-
-  <div class="page titlepage">
-    <div class="pg"><div class="body" style="align-items:center;justify-content:center;text-align:center"><div class="rh" style="justify-content:center">Immersive Experiences</div><h2 class="foil" style="font-family:var(--cap);font-weight:600;font-size:6.6cqh;letter-spacing:.05em;color:#6a3a16;margin:1cqh 0 0">EGYPT ECLIPSE</h2><div class="rule" style="width:46%;margin:2.6cqh auto"></div><div class="lead" style="font-style:italic;max-width:30ch">The longest Total Solar Eclipse left this century, in the ancient City of the Sun.</div><p class="t" style="font-family:var(--cap);letter-spacing:.2em;text-transform:uppercase;font-size:2cqh;color:var(--gold-dp);margin-top:2cqh">30 July to 9 August 2027</p><p class="t" style="font-style:italic;font-family:var(--disp);font-size:2.8cqh;color:var(--ink-soft)">A partnership invitation</p></div></div>
+    <div class="pg"><div class="cov"><img class="art" src="media/eclipse-luxor.jpg" alt="A total solar eclipse over the temple of Luxor at dusk"><div class="scrim"></div><div class="top"><div class="eyebrow">Immersive Experiences · The Eclipse Trilogy</div><div class="mh">EGYPT ECLIPSE</div><div class="hr"></div></div><div class="lines"><div class="cl1">The Partnership</div><div class="cl2">Totality over Luxor · 2 August 2027</div><div class="teasers"><span>Ten days on the Nile, from Aswan to the Sphinx</span><span>Six minutes and twenty-three seconds of darkness</span><span>The Lion’s Gate at the Pyramids of Giza</span></div></div><div class="issue">Luxor &amp; the Nile · 2027</div></div></div>
   </div>
 
   <div class="page">
-    <div class="pg"><div class="rh"><span class="sec">The moment</span><span class="pn"></span></div><div class="rule"></div><div class="body"><h2>On 2 August 2027 the Sun goes out over the <em>City of the Sun.</em></h2><div class="stats"><div class="stat"><b>6:23</b><span>of totality over Luxor</span></div><div class="stat"><b>87 years</b><span>until a longer one on land</span></div><div class="stat"><b>10 days</b><span>Aswan to Luxor to Giza</span></div></div><p class="t drop">Luxor was Thebes, capital of the New Kingdom, a city built to align daily life with the sky. We watch from the West Bank, among the Valley of the Kings, Hatshepsut and the Colossi of Memnon, with the Nile between us and Karnak. It is the single most photographed place on Earth to be standing in a shadow that long.</p></div><div class="folio"></div></div>
+    <div class="pg"><div class="mast"><span class="mb">Egypt Eclipse</span><span>The Moment</span></div><div class="feat"><div class="kick">The invitation</div><h2>On 2 August 2027 the Sun goes out over the <em>City of the Sun.</em></h2><div class="stats"><div class="stat"><b>6:23</b><span>of totality over Luxor</span></div><div class="stat"><b>87 years</b><span>until a longer one on land</span></div><div class="stat"><b>10 days</b><span>Aswan to Luxor to Giza</span></div></div><div class="cols2"><p class="t drop">Luxor was Thebes, capital of the New Kingdom, a city built to align daily life with the sky. We watch from the West Bank, among the Valley of the Kings, Hatshepsut and the Colossi of Memnon, with the Nile between us and Karnak. It is the single most photographed place on Earth to be standing in a shadow that long.</p><p class="t">Around it: a week on the river from Aswan, a New Moon ceremony the evening before, music into the night after, and three days at Giza ending with the Lion’s Gate at the Sphinx on 8 August. Everyone who comes is there for the same six minutes.</p></div></div><div class="foot"><span>The Partnership · 2027</span><span class="pn"></span></div></div>
   </div>
 
   <div class="page">
-    <div class="pg"><div class="rh"><span class="sec">The moment</span><span class="pn"></span></div><div class="rule"></div><div class="body"><p class="cont">continued</p><p class="t">Around it: a week on the river from Aswan, a New Moon ceremony the evening before, music into the night after, and three days at Giza ending with the Lion’s Gate at the Sphinx on 8 August. Everyone who comes is there for the same six minutes.</p><figure class="plate mid"><div class="fr"><img src="media/karnak-hypostyle.jpg" loading="lazy" alt="The Great Hypostyle Hall, Karnak"></div><figcaption>The Great Hypostyle Hall, Karnak</figcaption></figure></div><div class="folio"></div></div>
-  </div>
-
-  <div class="page">
-    <div class="pg"><div class="rh"><span class="sec">The room</span><span class="pn"></span></div><div class="rule"></div><div class="body"><h2>Mobile, liquid, and <em>already in motion.</em></h2><p class="lead">Egypt Eclipse is intentionally small: about 500 people on two ships and two West Bank hotels for ten days, 1,000 at the Gathering, 3,000 at the Sphinx. It is sold at $9,999 to $21,100 for the river and the retreats, and the people who buy it are the people who flew to the edge of Iceland for two minutes of darkness.</p><p class="t">Astronauts, physicians, scientists, founders, investors, artists and the people who fund them. In Iceland the average participant spent more than $5,000 on the trip beyond their ticket. In Egypt they spend ten days within arm’s reach of your brand, on a boat.</p></div><div class="folio"></div></div>
-  </div>
-
-  <div class="page">
-    <div class="pg"><div class="rh"><span class="sec">The room</span><span class="pn"></span></div><div class="rule"></div><div class="body"><p class="cont">continued</p><div class="stats q"><div class="stat"><b>4,200</b><span>came to Iceland, from 75 countries</span></div><div class="stat"><b>$5,000+</b><span>average trip spend per person beyond the ticket, Iceland 2026</span></div><div class="stat"><b>$9,999</b><span>starting price of a Nile cabin at Egypt Eclipse</span></div><div class="stat"><b>35 · 75%</b><span>average age · hold a higher degree</span></div></div><figure class="plate mid"><div class="fr"><img src="media/jaz-crown-prince.jpg" loading="lazy" alt="Our ship, the Jaz Crown Prince"></div><figcaption>Our ship, the Jaz Crown Prince</figcaption></figure><p class="fn">Iceland Eclipse 2026 participant data, IMXP. Egypt figures are planned capacities.</p></div><div class="folio"></div></div>
+    <div class="pg"><div class="mast"><span class="mb">Egypt Eclipse</span><span>The Room</span></div><div class="feat"><div class="kick">Who is in the room</div><h2>Mobile, liquid, and <em>already in motion.</em></h2><div class="cols2"><p class="t drop">Egypt Eclipse is intentionally small: about 500 people on two ships and two West Bank hotels for ten days, 1,000 at the Gathering, 3,000 at the Sphinx. It is sold at $9,999 to $21,100 for the river and the retreats, and the people who buy it are the people who flew to the edge of Iceland for two minutes of darkness.</p><p class="t">Astronauts, physicians, scientists, founders, investors, artists and the people who fund them. In Iceland the average participant spent more than $5,000 on the trip beyond their ticket. In Egypt they spend ten days within arm’s reach of your brand, on a boat.</p></div><div class="stats q"><div class="stat"><b>4,200</b><span>came to Iceland, from 75 countries</span></div><div class="stat"><b>$5,000+</b><span>avg trip spend beyond the ticket, Iceland 2026</span></div><div class="stat"><b>$9,999</b><span>starting price of a Nile cabin</span></div><div class="stat"><b>35 · 75%</b><span>average age · hold a higher degree</span></div></div><p class="fn">Iceland Eclipse 2026 participant data, IMXP. Egypt figures are planned capacities.</p></div><div class="foot"><span>The Partnership · 2027</span><span class="pn"></span></div></div>
   </div>
 
   <div class="page leafimg">
-    <div class="pg"><div class="photo"><video class="clip" data-clip="hero" poster="media/clips/hero-poster.jpg" muted loop playsinline preload="none" aria-label="A painted flight down the Nile at golden hour"></video></div><div class="cap"><div class="rh"><span class="sec">Ten days, one gathering</span><span class="pn"></span></div><div class="rule"></div><h2 class="sm">Every pathway meets at totality.</h2><p class="lead">Every pathway converges on the West Bank for the Luxor Eclipse Gathering, 1 to 2 August. The Giza Activation is an extension open to all.</p></div></div>
+    <div class="pg"><div class="photo"><video class="clip" data-clip="hero" poster="media/clips/hero-poster.jpg" muted loop playsinline preload="none" aria-label="A painted flight down the Nile at golden hour"></video></div><div class="fr2"></div><div class="cap"><div class="mast"><span class="mb">Egypt Eclipse</span><span>The Journey</span></div><div class="kick">Ten days, one gathering</div><h2 class="sm">Every pathway meets at totality.</h2><p class="deck">Every pathway converges on the West Bank for the Luxor Eclipse Gathering, 1 to 2 August. The Giza Activation is an extension open to all.</p></div></div>
   </div>
 
   <div class="page">
-    <div class="pg"><div class="rh"><span class="sec">How it works</span><span class="pn"></span></div><div class="rule"></div><div class="body"><h2 class="sm">Seven ways in. <em>One shared day.</em></h2><p class="t">River or hotel, every pathway converges on the West Bank for the Gathering, so a partner present there meets everyone at once.</p><div class="ways"><div class="way"><div class="nm">Jaz Crown Prince<span>Nile cruise</span></div><div class="mt">156 · $9,999</div><div class="bar" style="--b:linear-gradient(90deg,#1b7f86,#2fa0a6);width:74%"></div></div><div class="way"><div class="nm">Jaz Celebrity<span>Nile cruise</span></div><div class="mt">138 · $9,999</div><div class="bar" style="--b:linear-gradient(90deg,#1b7f86,#2fa0a6);width:74%"></div></div><div class="way"><div class="nm">Omda Wellness Retreat<span>West Bank hotel</span></div><div class="mt">162 · $5,500</div><div class="bar" style="--b:linear-gradient(90deg,#c98a3a,#e8c572);width:74%"></div></div><div class="way"><div class="nm">Marsam Historic Hotel<span>West Bank hotel</span></div><div class="mt">35 · $6,600</div><div class="bar" style="--b:linear-gradient(90deg,#c98a3a,#e8c572);width:56%;margin-left:18%"></div></div><div class="way"><div class="nm">Eclipse Gathering pass<span>West Bank</span></div><div class="mt">1,000 · $999</div><div class="bar" style="--b:linear-gradient(90deg,#a8441d,#d9531e);width:27%;margin-left:18%"></div></div><div class="way"><div class="nm">Giza Activation<span>Cairo</span></div><div class="mt">~500 · $3,333</div><div class="bar" style="--b:linear-gradient(90deg,#7c7466,#9a9484);width:36%;margin-left:64%"></div></div><div class="way"><div class="nm">Lion’s Gate Celebration<span>The Sphinx</span></div><div class="mt">3,000 · $500</div><div class="bar" style="--b:linear-gradient(90deg,#a8441d,#d9531e);width:9%;margin-left:82%"></div></div></div><div class="legend"><span><i style="background:#1b7f86"></i>On the river</span><span><i style="background:#c98a3a"></i>West Bank hotels</span><span><i style="background:#7c7466"></i>Cairo</span><span><i style="background:#a8441d"></i>Shared moments</span></div><p class="fn">Prices per person, lowest room category. Gathering pass holders stay where they choose; a family pathway is in development.</p></div><div class="folio"></div></div>
+    <div class="pg"><div class="mast"><span class="mb">Egypt Eclipse</span><span>How It Works</span></div><div class="feat"><div class="kick">Seven pathways</div><h2 class="sm">Seven ways in. <em>One shared day.</em></h2><p class="t" style="text-align:left">River or hotel, every pathway converges on the West Bank for the Gathering, so a partner present there meets everyone at once.</p><div class="ways"><div class="way"><div class="nm">Jaz Crown Prince<span>Nile cruise</span></div><div class="mt">156 · $9,999</div><div class="bar" style="--b:linear-gradient(90deg,#1b7f86,#2fa0a6);width:74%"></div></div><div class="way"><div class="nm">Jaz Celebrity<span>Nile cruise</span></div><div class="mt">138 · $9,999</div><div class="bar" style="--b:linear-gradient(90deg,#1b7f86,#2fa0a6);width:74%"></div></div><div class="way"><div class="nm">Omda Wellness Retreat<span>West Bank hotel</span></div><div class="mt">162 · $5,500</div><div class="bar" style="--b:linear-gradient(90deg,#c98a3a,#e8c572);width:74%"></div></div><div class="way"><div class="nm">Marsam Historic Hotel<span>West Bank hotel</span></div><div class="mt">35 · $6,600</div><div class="bar" style="--b:linear-gradient(90deg,#c98a3a,#e8c572);width:56%;margin-left:18%"></div></div><div class="way"><div class="nm">Eclipse Gathering pass<span>West Bank</span></div><div class="mt">1,000 · $999</div><div class="bar" style="--b:linear-gradient(90deg,#a8441d,#d9531e);width:27%;margin-left:18%"></div></div><div class="way"><div class="nm">Giza Activation<span>Cairo</span></div><div class="mt">~500 · $3,333</div><div class="bar" style="--b:linear-gradient(90deg,#7c7466,#9a9484);width:36%;margin-left:64%"></div></div><div class="way"><div class="nm">Lion’s Gate Celebration<span>The Sphinx</span></div><div class="mt">3,000 · $500</div><div class="bar" style="--b:linear-gradient(90deg,#a8441d,#d9531e);width:9%;margin-left:82%"></div></div></div><div class="legend"><span><i style="background:#1b7f86"></i>On the river</span><span><i style="background:#c98a3a"></i>West Bank hotels</span><span><i style="background:#7c7466"></i>Cairo</span><span><i style="background:#a8441d"></i>Shared moments</span></div><p class="fn">Prices per person, lowest room category. Gathering pass holders stay where they choose; a family pathway is in development.</p></div><div class="foot"><span>The Partnership · 2027</span><span class="pn"></span></div></div>
   </div>
 
   <div class="page leafimg">
-    <div class="pg"><div class="photo"><img src="media/new-moon-ceremony.jpg" loading="lazy" alt="Candlelit ceremony circle at dusk on the West Bank"></div><div class="cap"><div class="rh"><span class="sec">The experience · I · 1 August</span><span class="pn"></span></div><div class="rule"></div><h2 class="sm">The eve: every pathway, together for the first time.</h2><p class="lead">At dusk on the last night before the eclipse, the ships and the hotels meet on the West Bank for the New Moon Ceremony. Local wisdom keepers and elders from many lands light the first candles and open the circle, and a community that has been gathering since Iceland finds itself again. Then music carries the night.</p><p class="fn">Artist’s impressions. Partner moments: the welcome at the circle, and the concert.</p></div></div>
+    <div class="pg"><div class="photo"><img src="media/new-moon-ceremony.jpg" loading="lazy" alt="Candlelit ceremony circle at dusk on the West Bank"></div><div class="fr2"></div><div class="cap"><div class="mast"><span class="mb">Egypt Eclipse</span><span>The Experience · I</span></div><div class="kick">1 August</div><h2 class="sm">The eve: every pathway, together for the first time.</h2><p class="deck">At dusk on the last night before the eclipse, the ships and the hotels meet on the West Bank for the New Moon Ceremony. Local wisdom keepers and elders from many lands light the first candles and open the circle, and a community that has been gathering since Iceland finds itself again. Then music carries the night.</p><p class="fn">Artist’s impressions. Partner moments: the welcome at the circle, and the concert.</p></div></div>
   </div>
 
   <div class="page leafimg">
-    <div class="pg"><div class="photo"><img src="media/eclipse-day-grounds.jpg" loading="lazy" alt="Shaded lounges and textiles at the Eclipse Day gathering"></div><div class="cap"><div class="rh"><span class="sec">The experience · II · 2 August</span><span class="pn"></span></div><div class="rule"></div><h2 class="sm">Eclipse day: a festival built around six minutes.</h2><p class="lead">From 11:00 the grounds beside the Marsam open as a gathering made with an eye: shade and colour, art and installations, set against the rustic West Bank. The Moon first touches the Sun at 11:40. At 13:01 it covers it, and a thousand people, every one in eclipse glasses, go still.</p><p class="when">11:00 grounds open · 11:40 first contact · 13:01 totality · the afternoon in the shade</p><p class="fn">Artist’s impressions. Partner moments: the grounds, the glasses, the countdown and totality itself.</p></div></div>
+    <div class="pg"><div class="photo"><img src="media/eclipse-day-grounds.jpg" loading="lazy" alt="Shaded lounges and textiles at the Eclipse Day gathering"></div><div class="fr2"></div><div class="cap"><div class="mast"><span class="mb">Egypt Eclipse</span><span>The Experience · II</span></div><div class="kick">2 August</div><h2 class="sm">Eclipse day: a festival built around six minutes.</h2><p class="deck">From 11:00 the grounds beside the Marsam open as a gathering made with an eye: shade and colour, art and installations, set against the rustic West Bank. The Moon first touches the Sun at 11:40. At 13:01 it covers it, and a thousand people, every one in eclipse glasses, go still.</p><p class="when">11:00 grounds open · 11:40 first contact · 13:01 totality · the afternoon in the shade</p><p class="fn">Artist’s impressions. Partner moments: the grounds, the glasses, the countdown and totality itself.</p></div></div>
   </div>
 
   <div class="page leafimg">
-    <div class="pg"><div class="photo"><img src="media/night-celebration.jpg" loading="lazy" alt="A night celebration with a DJ and projections"></div><div class="cap"><div class="rh"><span class="sec">The experience · III · 2 to 3 August</span><span class="pn"></span></div><div class="rule"></div><h2 class="sm">The feast, then the celebration.</h2><p class="lead">After totality everyone retires into the shade by the Marsam: long tables, Egyptian food, Saidi and Nubian musicians, elders and guests at the same table. Then the release, a DJ and a full audio-visual celebration of the longest eclipse of the century, through the night until a send-off together on the morning of the 3rd.</p><p class="fn">Artist’s impressions. Partner moments: the feast, and the night’s celebration.</p></div></div>
+    <div class="pg"><div class="photo"><img src="media/night-celebration.jpg" loading="lazy" alt="A night celebration with a DJ and projections"></div><div class="fr2"></div><div class="cap"><div class="mast"><span class="mb">Egypt Eclipse</span><span>The Experience · III</span></div><div class="kick">2 to 3 August</div><h2 class="sm">The feast, then the celebration.</h2><p class="deck">After totality everyone retires into the shade by the Marsam: long tables, Egyptian food, Saidi and Nubian musicians, elders and guests at the same table. Then the release, a DJ and a full audio-visual celebration of the longest eclipse of the century, through the night until a send-off together on the morning of the 3rd.</p><p class="fn">Artist’s impressions. Partner moments: the feast, and the night’s celebration.</p></div></div>
   </div>
 
   <div class="page">
-    <div class="pg"><div class="rh"><span class="sec">Proof</span><span class="pn"></span></div><div class="rule"></div><div class="body"><h2 class="sm">Iceland Eclipse, August 2026. <em>The story travelled the world.</em></h2><div class="stats q"><div class="stat"><b>4,200</b><span>participants</span></div><div class="stat"><b>75</b><span>countries</span></div><div class="stat"><b>250</b><span>artists and speakers</span></div><div class="stat"><b>50M</b><span>impressions, before, during and after</span></div></div><h3>In the press</h3><p class="press">The New York Times · CNN · broadcast · Good Morning America · National Geographic · Condé Nast Traveler · Billboard · Space.com · Live Science · SETI Institute live broadcast.</p></div><div class="folio"></div></div>
+    <div class="pg"><div class="mast"><span class="mb">Egypt Eclipse</span><span>Proof</span></div><div class="feat"><div class="kick">Iceland Eclipse · August 2026</div><h2 class="sm">The story travelled the world.</h2><div class="stats q" style="margin-bottom:1.2cqh"><div class="stat"><b>4,200</b><span>participants</span></div><div class="stat"><b>75</b><span>countries</span></div><div class="stat"><b>250</b><span>artists and speakers</span></div><div class="stat"><b>50M</b><span>impressions, before, during and after</span></div></div><div class="cols2"><h3>In the press</h3><p class="press">The New York Times · CNN · broadcast · Good Morning America · National Geographic · Condé Nast Traveler · Billboard · Space.com · Live Science · SETI Institute live broadcast.</p><h3>Built with us</h3><p class="t">Brands who did more than hang a banner. Icelandic Glacial poured the water from a branded platform. 66°North dressed the crew. MakeSoil put roots back in the ground. Coca-Cola, Einstök, Askur, Helix7 and a dozen more activated on site.</p><h3>The Portal</h3><p class="t">A month before the festival, fifty artists, scientists and builders lived together at The Freezer in Ríf and made the work that appeared across the site, then archived it into a LifeShip time capsule bound for the Moon. A sponsored residency, delivered.</p></div></div><div class="foot"><span>The Partnership · 2027</span><span class="pn"></span></div></div>
   </div>
 
   <div class="page">
-    <div class="pg"><div class="rh"><span class="sec">Proof</span><span class="pn"></span></div><div class="rule"></div><div class="body"><p class="cont">continued</p><h3>Built with us</h3><p class="t">Brands who did more than hang a banner. Icelandic Glacial poured the water from a branded platform. 66°North dressed the crew. MakeSoil put roots back in the ground. Coca-Cola, Einstök, Askur, Helix7 and a dozen more activated on site.</p><h3>The Portal</h3><p class="t">A month before the festival, fifty artists, scientists and builders lived together at The Freezer in Ríf and made the work that appeared across the site, then archived it into a LifeShip time capsule bound for the Moon. A sponsored residency, delivered.</p><figure class="plate mid"><div class="fr"><img src="media/iceland-opening-ceremony.jpg" loading="lazy" alt="Iceland Eclipse 2026 · Opening ceremony"></div><figcaption>Iceland Eclipse 2026 · Opening ceremony</figcaption></figure></div><div class="folio"></div></div>
+    <div class="pg"><div class="mast"><span class="mb">Egypt Eclipse</span><span>Why Brands</span></div><div class="feat"><div class="kick">The case</div><h2 class="sm">Three things you cannot buy anywhere else in 2027.</h2><div class="split img-r"><div><h3>I · The room</h3><p class="t">Ten days of hosted contact with five hundred people who decide where money and attention go. Not an audience, a dinner table.</p><h3>II · The moment</h3><p class="t">Your name on six minutes of totality over Luxor, or on the Lion’s Gate at the Sphinx. Moments with a date, a place, and a reason the world is watching.</p><h3>III · The footage</h3><p class="t">A professional crew on the Nile, in the temples, in the desert and under the eclipse, shooting for you. Campaign-grade b-roll of Egypt no agency can stage.</p></div><div style="height:52cqh"><figure class="plate"><div class="fr"><video class="clip" data-clip="luxor" poster="media/clips/luxor-poster.jpg" muted loop playsinline preload="none" aria-label="Balloons rising over the West Bank of Luxor"></video></div><figcaption>Dawn balloons over the West Bank, Luxor</figcaption></figure></div></div></div><div class="foot"><span>The Partnership · 2027</span><span class="pn"></span></div></div>
   </div>
 
   <div class="page">
-    <div class="pg"><div class="rh"><span class="sec">Why brands</span><span class="pn"></span></div><div class="rule"></div><div class="body"><h2 class="sm">Three things you cannot buy anywhere else in 2027.</h2><h3>I · The room</h3><p class="t">Ten days of hosted contact with five hundred people who decide where money and attention go. Not an audience, a dinner table.</p><h3>II · The moment</h3><p class="t">Your name on six minutes of totality over Luxor, or on the Lion’s Gate at the Sphinx. Moments with a date, a place, and a reason the world is watching.</p><h3>III · The footage</h3><p class="t">A professional crew on the Nile, in the temples, in the desert and under the eclipse, shooting for you. Campaign-grade b-roll of Egypt no agency can stage.</p><figure class="plate mid"><div class="fr"><video class="clip" data-clip="luxor" poster="media/clips/luxor-poster.jpg" muted loop playsinline preload="none" aria-label="Balloons rising over the West Bank of Luxor"></video></div><figcaption>Dawn balloons over the West Bank, Luxor</figcaption></figure></div><div class="folio"></div></div>
+    <div class="pg"><div class="mast"><span class="mb">Egypt Eclipse</span><span>Presenting Partner</span></div><div class="feat"><div class="kick">One partner · $400,000</div><h2 class="sm">“[Your brand] presents <em>Egypt Eclipse.</em>”</h2><p class="t" style="text-align:left">Title across the whole journey: the site, the program, every pathway, the Gathering, Giza, the film. Category exclusivity. The one brand our participants associate with having made this possible.</p><div class="split" style="grid-template-columns:1fr 1fr;gap:4cqw;margin-top:.6cqh"><div><h3>Hosted presence</h3><ul class="ticks"><li>A private dinner aboard one ship and a hosted evening on the West Bank</li><li>Eight places on the journey for your people, pathway of your choice</li><li>A welcome gift in every cabin and room, designed with you</li><li>Your team at the Gathering, the New Moon ceremony and the Sphinx</li><li>Or a private vessel of your own on the same journey, chartered whole for your guests, subject to availability</li></ul></div><div><h3>Presence and content</h3><ul class="ticks"><li>Title credit on the Egypt Eclipse film and all recap content</li><li>Named presenting partner across site, program, press release and press kit</li><li>Dedicated content series across Egypt Eclipse channels, before and after</li><li>First right to the Totality or Lion’s Gate signature moment</li></ul><h3>Platform</h3><ul class="ticks"><li>Option on Midnight Sun (July 2027) and Australasia (2028) at preferred terms</li><li>Partner report within 60 days: delivered, reach, audience</li></ul></div></div></div><div class="foot"><span>The Partnership · 2027</span><span class="pn"></span></div></div>
   </div>
 
   <div class="page">
-    <div class="pg"><div class="rh"><span class="sec">Presenting partner · one · $400,000</span><span class="pn"></span></div><div class="rule"></div><div class="body"><h2 class="sm">“[Your brand] presents <em>Egypt Eclipse.</em>”</h2><h3>What it is</h3><p class="t">Title across the whole journey: the site, the program, every pathway, the Gathering, Giza, the film. Category exclusivity. The one brand our participants associate with having made this possible.</p><h3>Hosted presence</h3><ul class="ticks"><li>A private dinner aboard one ship and a hosted evening on the West Bank</li><li>Eight places on the journey for your people, pathway of your choice</li><li>A welcome gift in every cabin and room, designed with you</li><li>Your team at the Gathering, the New Moon ceremony and the Sphinx</li><li>Or a private vessel of your own on the same journey, chartered whole for your guests, subject to availability</li></ul></div><div class="folio"></div></div>
+    <div class="pg"><div class="mast"><span class="mb">Egypt Eclipse</span><span>Signature Moment</span></div><div class="feat"><div class="kick">One partner · $150,000</div><h2 class="sm">Totality at Luxor.</h2><div class="split img-r"><div><p class="deck">2 August 2027, the West Bank. Six minutes and twenty-three seconds of darkness over the Theban hills, a thousand people silent, the ships moored below. “[Your brand] presents Totality in Luxor.” Title and exclusive branding of the viewing ground, the eclipse glasses in every hand, the countdown, and the film of the moment itself.</p><ul class="ticks"><li>Naming of the viewing ground and the Eclipse Day program</li><li>Co-branded eclipse glasses for every participant, yours to keep as a design</li><li>Dedicated crew: the totality sequence filmed and delivered with full rights</li><li>Four places on the journey, hosted position at the viewing ground</li><li>Credit in the film and recap, press kit, social series</li></ul></div><div style="height:56cqh"><figure class="plate"><div class="fr"><video class="clip" data-clip="temples" poster="media/clips/temples-poster.jpg" muted loop playsinline preload="none" aria-label="A painted glide into the temples of Luxor"></video></div><figcaption>The temples of Luxor</figcaption></figure></div></div></div><div class="foot"><span>The Partnership · 2027</span><span class="pn"></span></div></div>
   </div>
 
   <div class="page">
-    <div class="pg"><div class="rh"><span class="sec">Presenting partner · one · $400,000</span><span class="pn"></span></div><div class="rule"></div><div class="body"><p class="cont">continued</p><h3>Presence and content</h3><ul class="ticks"><li>Title credit on the Egypt Eclipse film and all recap content</li><li>Named presenting partner across site, program, press release and press kit</li><li>Dedicated content series across Egypt Eclipse channels, before and after</li><li>First right to the Totality or Lion’s Gate signature moment</li></ul><h3>Platform</h3><ul class="ticks"><li>Option on Midnight Sun (July 2027) and Australasia (2028) at preferred terms</li><li>Partner report within 60 days: delivered, reach, audience</li></ul><figure class="plate mid"><div class="fr"><img src="media/felucca-dusk.jpg" loading="lazy" alt="A felucca at dusk on the Nile"></div><figcaption>A felucca at dusk on the Nile</figcaption></figure></div><div class="folio"></div></div>
+    <div class="pg"><div class="mast"><span class="mb">Egypt Eclipse</span><span>Signature Moment</span></div><div class="feat"><div class="kick">One partner · $150,000</div><h2 class="sm">Lion’s Gate at the Sphinx.</h2><div class="split img-l"><div style="height:56cqh"><figure class="plate"><div class="fr"><video class="clip" data-clip="finale" poster="media/clips/finale-poster.jpg" muted loop playsinline preload="none" aria-label="A painted night walk to the Great Sphinx"></video></div><figcaption>The Sphinx at night, Giza</figcaption></figure></div><div><p class="deck">8 August 2027, the evening of the 8/8 alignment, three thousand people at the foot of the Sphinx with the pyramids behind. The celebration that closes the journey and the single most recognisable backdrop in the world. “[Your brand] presents the Lion’s Gate Celebration.”</p><ul class="ticks"><li>Naming of the celebration and the Giza Activation program</li><li>Stage, sound and light branding within the heritage site’s rules</li><li>Dedicated crew: the celebration filmed and delivered with full rights</li><li>Four places on the Giza Activation, hosted terrace at the Sphinx</li><li>Credit in the film and recap, press kit, social series</li></ul></div></div></div><div class="foot"><span>The Partnership · 2027</span><span class="pn"></span></div></div>
   </div>
 
   <div class="page">
-    <div class="pg"><div class="rh"><span class="sec">Signature moment · one partner · $150,000</span><span class="pn"></span></div><div class="rule"></div><div class="body"><h2 class="sm">Totality at Luxor.</h2><p class="lead">2 August 2027, the West Bank. Six minutes and twenty-three seconds of darkness over the Theban hills, a thousand people silent, the ships moored below. “[Your brand] presents Totality in Luxor.” Title and exclusive branding of the viewing ground, the eclipse glasses in every hand, the countdown, and the film of the moment itself.</p><ul class="ticks"><li>Naming of the viewing ground and the Eclipse Day program</li><li>Co-branded eclipse glasses for every participant, yours to keep as a design</li><li>Dedicated crew: the totality sequence filmed and delivered with full rights</li><li>Four places on the journey, hosted position at the viewing ground</li><li>Credit in the film and recap, press kit, social series</li></ul><figure class="plate mid"><div class="fr"><video class="clip" data-clip="temples" poster="media/clips/temples-poster.jpg" muted loop playsinline preload="none" aria-label="A painted glide into the temples of Luxor"></video></div><figcaption>The temples of Luxor</figcaption></figure></div><div class="folio"></div></div>
+    <div class="pg"><div class="mast"><span class="mb">Egypt Eclipse</span><span>Category Partners</span></div><div class="feat"><div class="kick">One per category · $50,000 to $100,000</div><h2 class="sm">Own a category for ten days.</h2><div class="cards"><div class="card"><h4>Sun and sight</h4><p>Eyewear, sun care, skin. The one category every person on the Nile needs in August.</p></div><div class="card"><h4>Hydration &amp; nourishment</h4><p>Water, electrolytes, nutrition. Poured and served across ten days of heat.</p></div><div class="card"><h4>Movement &amp; wellness</h4><p>Apparel, mats, recovery. Sunrise sessions on the deck and the West Bank.</p></div><div class="card"><h4>Time &amp; navigation</h4><p>Watches, instruments, the brands that mark a moment. A countdown to the second.</p></div><div class="card"><h4>Travel &amp; gear</h4><p>Luggage, layers, the kit of people who go far. Dressing the crew, as 66°North did.</p></div><div class="card"><h4>Spirits &amp; celebration</h4><p>What is poured after totality and at the Sphinx. Category exclusive.</p></div></div><p class="t" style="margin-top:1.2cqh">Each category partner receives exclusivity in their category, product in every cabin and room, presence at the Gathering and on the ships, two places on the journey, a dedicated content piece, and credit in the film, press kit and recap. The $100,000 level adds a hosted moment of your own: a sunrise session, a tasting, a workshop.</p></div><div class="foot"><span>The Partnership · 2027</span><span class="pn"></span></div></div>
   </div>
 
   <div class="page">
-    <div class="pg"><div class="rh"><span class="sec">Signature moment · one partner · $150,000</span><span class="pn"></span></div><div class="rule"></div><div class="body"><h2 class="sm">Lion’s Gate at the Sphinx.</h2><p class="lead">8 August 2027, the evening of the 8/8 alignment, three thousand people at the foot of the Sphinx with the pyramids behind. The celebration that closes the journey and the single most recognisable backdrop in the world. “[Your brand] presents the Lion’s Gate Celebration.”</p><ul class="ticks"><li>Naming of the celebration and the Giza Activation program</li><li>Stage, sound and light branding within the heritage site’s rules</li><li>Dedicated crew: the celebration filmed and delivered with full rights</li><li>Four places on the Giza Activation, hosted terrace at the Sphinx</li><li>Credit in the film and recap, press kit, social series</li></ul><figure class="plate mid"><div class="fr"><video class="clip" data-clip="finale" poster="media/clips/finale-poster.jpg" muted loop playsinline preload="none" aria-label="A painted night walk to the Great Sphinx"></video></div><figcaption>The Sphinx at night, Giza</figcaption></figure></div><div class="folio"></div></div>
+    <div class="pg"><div class="mast"><span class="mb">Egypt Eclipse</span><span>Hosted Presence</span></div><div class="feat"><div class="kick">The ten days</div><h2 class="sm">What a partner’s ten days actually look like.</h2><div class="itin"><div class="row"><div class="d">30 Jul</div><div><b>Aswan.</b> <span class="w">Welcome dinner aboard; your gift in every cabin.</span></div></div><div class="row"><div class="d">31 Jul</div><div><b>Edfu · Kom Ombo.</b> <span class="w">Temple mornings; your team sails with us.</span></div></div><div class="row"><div class="d">1 Aug</div><div><b>Luxor.</b> <span class="w">New Moon ceremony; hosted evening on the West Bank.</span></div></div><div class="row"><div class="d">2 Aug</div><div><b>Luxor.</b> <span class="w">The Gathering from 11:00; totality at 13:01, filmed; the feast and the celebration.</span></div></div><div class="row"><div class="d">3 Aug</div><div><b>West Bank.</b> <span class="w">Morning send-off; dawn balloons; Valley of the Kings.</span></div></div><div class="row"><div class="d">4–5 Aug</div><div><b>River · Aswan.</b> <span class="w">Edfu, Kom Ombo, Abu Simbel, Philae; farewell dinner.</span></div></div><div class="row"><div class="d">6–7 Aug</div><div><b>Cairo · Giza.</b> <span class="w">The plateau, the Grand Egyptian Museum.</span></div></div><div class="row"><div class="d">8 Aug</div><div><b>Sphinx.</b> <span class="w">Lion’s Gate Celebration.</span></div></div><div class="row"><div class="d">9 Aug</div><div><b>Depart.</b> <span class="w">Footage and stills begin delivery.</span></div></div></div><p class="fn">Presence is hosted, not interruptive: partners are participants with a role, and the program is built so the brand is met rather than seen.</p></div><div class="foot"><span>The Partnership · 2027</span><span class="pn"></span></div></div>
   </div>
 
   <div class="page">
-    <div class="pg"><div class="rh"><span class="sec">Category partners · one per category · $50,000 to $100,000</span><span class="pn"></span></div><div class="rule"></div><div class="body"><h2 class="sm">Own a category for ten days.</h2><div class="cards"><div class="card"><h4>Sun and sight</h4><p>Eyewear, sun care, skin. The one category every person on the Nile needs in August.</p></div><div class="card"><h4>Hydration and nourishment</h4><p>Water, electrolytes, nutrition. Poured and served across ten days of heat.</p></div><div class="card"><h4>Movement and wellness</h4><p>Apparel, mats, recovery. Sunrise sessions on the deck and the West Bank.</p></div><div class="card"><h4>Time and navigation</h4><p>Watches, instruments, the brands that mark a moment. A countdown to the second.</p></div><div class="card"><h4>Travel and gear</h4><p>Luggage, layers, the kit of people who go far. Dressing the crew, as 66°North did.</p></div><div class="card"><h4>Spirits and celebration</h4><p>What is poured after totality and at the Sphinx. Category exclusive.</p></div></div></div><div class="folio"></div></div>
+    <div class="pg"><div class="mast"><span class="mb">Egypt Eclipse</span><span>Content & Rights</span></div><div class="feat"><div class="kick">What you keep</div><h2 class="sm">You leave with the footage, <em>not just the memory.</em></h2><div class="split img-r"><div><p class="t" style="text-align:left">A professional film and stills crew travels the full ten days: the Nile at dawn, Karnak and the West Bank temples, the desert, the ships, totality, the Sphinx at night. Partners receive their activation and their presence filmed, plus a licensed b-roll library of Egypt no agency could stage.</p><ul class="ticks"><li><b>Your sequence.</b> Activation and hosted moments shot, cut and delivered</li><li><b>The library.</b> Licensed Egypt, Nile and desert b-roll for future campaigns, 24 months, worldwide</li><li><b>The film.</b> Credit in the Egypt Eclipse film and recap, released within 60 days</li><li><b>Stills.</b> Edited photography with usage rights, delivered within 30 days</li><li><b>Report.</b> What was delivered, reach across channels, audience highlights</li></ul></div><div style="height:50cqh"><figure class="plate"><div class="fr"><video class="clip" data-clip="desert" poster="media/clips/desert-poster.jpg" muted loop playsinline preload="none" aria-label="Painted Egypt and desert b-roll"></video></div><figcaption>Egypt, Nile & desert · b-roll</figcaption></figure></div></div><p class="fn">Filming at heritage sites is arranged with our Egyptian operator under the relevant permits; usage terms are set in each partnership agreement.</p></div><div class="foot"><span>The Partnership · 2027</span><span class="pn"></span></div></div>
   </div>
 
   <div class="page">
-    <div class="pg"><div class="rh"><span class="sec">Category partners</span><span class="pn"></span></div><div class="rule"></div><div class="body"><p class="cont">continued</p><p class="t">Each category partner receives exclusivity in their category, product in every cabin and room, presence at the Gathering and on the ships, two places on the journey, a dedicated content piece, and credit in the film, press kit and recap. The $100,000 level adds a hosted moment of your own: a sunrise session, a tasting, a workshop.</p><figure class="plate mid"><div class="fr"><video class="clip" data-clip="desert" poster="media/clips/desert-poster.jpg" muted loop playsinline preload="none" aria-label="Painted Egypt and desert b-roll"></video></div><figcaption>Egypt, Nile & desert · b-roll</figcaption></figure></div><div class="folio"></div></div>
+    <div class="pg"><div class="mast"><span class="mb">Egypt Eclipse</span><span>The Platform</span></div><div class="feat"><div class="kick">Thirteen months</div><h2 class="sm">Three gatherings, three continents.</h2><div class="itin"><div class="row"><div class="d">Jul 2027</div><div><b>Midnight Sun · Reykjavík.</b> <span class="w">9 to 11 July. IMXP’s next Icelandic gathering, in the heart of the city at double the scale, under a sun that never sets.</span></div></div><div class="row"><div class="d">Aug 2027</div><div><b>Egypt Eclipse · Luxor.</b> <span class="w">30 July to 9 August. The century’s longest totality, the Nile, and the Lion’s Gate at the Sphinx.</span></div></div><div class="row"><div class="d">Jul 2028</div><div><b>Australasia · Ascension.</b> <span class="w">22 July 2028, across the outback to Sydney and New Zealand. The third chapter of the Eclipse Trilogy.</span></div></div></div><p class="t" style="margin-top:1.2cqh">Any partnership can be extended across the platform. A two-gathering agreement carries preferred terms; a Trilogy agreement through 2028 is priced at Egypt plus 40% and gives first position in every category. Brands pay for programs, not events, and this is a program.</p></div><div class="foot"><span>The Partnership · 2027</span><span class="pn"></span></div></div>
   </div>
 
   <div class="page">
-    <div class="pg"><div class="rh"><span class="sec">Hosted presence</span><span class="pn"></span></div><div class="rule"></div><div class="body"><h2 class="sm">What a partner’s ten days actually look like.</h2><div class="itin"><div class="row"><div class="d">30 Jul</div><div><b>Aswan.</b> <span class="w">Welcome dinner aboard; your gift in every cabin.</span></div></div><div class="row"><div class="d">31 Jul</div><div><b>Edfu · Kom Ombo.</b> <span class="w">Temple mornings; your team sails with us.</span></div></div><div class="row"><div class="d">1 Aug</div><div><b>Luxor.</b> <span class="w">New Moon ceremony; hosted evening on the West Bank.</span></div></div><div class="row"><div class="d">2 Aug</div><div><b>Luxor.</b> <span class="w">The Gathering from 11:00; totality at 13:01, filmed; the feast and the celebration.</span></div></div><div class="row"><div class="d">3 Aug</div><div><b>West Bank.</b> <span class="w">Morning send-off; dawn balloons; Valley of the Kings.</span></div></div><div class="row"><div class="d">4–5 Aug</div><div><b>River · Aswan.</b> <span class="w">Edfu, Kom Ombo, Abu Simbel, Philae; farewell dinner.</span></div></div><div class="row"><div class="d">6–7 Aug</div><div><b>Cairo · Giza.</b> <span class="w">The plateau, the Grand Egyptian Museum.</span></div></div><div class="row"><div class="d">8 Aug</div><div><b>Sphinx.</b> <span class="w">Lion’s Gate Celebration.</span></div></div><div class="row"><div class="d">9 Aug</div><div><b>Depart.</b> <span class="w">Footage and stills begin delivery.</span></div></div></div><p class="fn">Presence is hosted, not interruptive: partners are participants with a role, and the program is built so the brand is met rather than seen.</p></div><div class="folio"></div></div>
-  </div>
-
-  <div class="page">
-    <div class="pg"><div class="rh"><span class="sec">Content and rights</span><span class="pn"></span></div><div class="rule"></div><div class="body"><h2 class="sm">You leave with the footage, <em>not just the memory.</em></h2><p class="t">A professional film and stills crew travels the full ten days: the Nile at dawn, Karnak and the West Bank temples, the desert, the ships, totality, the Sphinx at night. Partners receive their activation and their presence filmed, plus a licensed b-roll library of Egypt no agency could stage.</p><ul class="ticks"><li><b>Your sequence.</b> Activation and hosted moments shot, cut and delivered</li><li><b>The library.</b> Licensed Egypt, Nile and desert b-roll for future campaigns, 24 months, worldwide</li><li><b>The film.</b> Credit in the Egypt Eclipse film and recap, released within 60 days</li><li><b>Stills.</b> Edited photography with usage rights, delivered within 30 days</li><li><b>Report.</b> What was delivered, reach across channels, audience highlights</li></ul><p class="fn">Filming at heritage sites is arranged with our Egyptian operator under the relevant permits; usage terms are set in each partnership agreement.</p></div><div class="folio"></div></div>
-  </div>
-
-  <div class="page">
-    <div class="pg"><div class="rh"><span class="sec">The platform</span><span class="pn"></span></div><div class="rule"></div><div class="body"><h2 class="sm">Thirteen months, three gatherings, three continents.</h2><div class="itin"><div class="row"><div class="d">Jul 2027</div><div><b>Midnight Sun · Reykjavík.</b> <span class="w">9 to 11 July. IMXP’s next Icelandic gathering, in the heart of the city at double the scale, under a sun that never sets.</span></div></div><div class="row"><div class="d">Aug 2027</div><div><b>Egypt Eclipse · Luxor.</b> <span class="w">30 July to 9 August. The century’s longest totality, the Nile, and the Lion’s Gate at the Sphinx.</span></div></div><div class="row"><div class="d">Jul 2028</div><div><b>Australasia · Ascension.</b> <span class="w">22 July 2028, across the outback to Sydney and New Zealand. The third chapter of the Eclipse Trilogy.</span></div></div></div><p class="t" style="margin-top:1.6cqh">Any partnership can be extended across the platform. A two-gathering agreement carries preferred terms; a Trilogy agreement through 2028 is priced at Egypt plus 40% and gives first position in every category. Brands pay for programs, not events, and this is a program.</p></div><div class="folio"></div></div>
-  </div>
-
-  <div class="page">
-    <div class="pg"><div class="rh"><span class="sec">Behind the gathering</span><span class="pn"></span></div><div class="rule"></div><div class="body"><h2 class="sm">Produced by the team behind Iceland Eclipse.</h2><h3>IMXP · producer</h3><p class="t">Immersive Experiences produces the Eclipse Trilogy and is building the platform that runs it. Texas Eclipse 2024 under the Hill Country totality; Iceland Eclipse 2026, 4,200 people from 75 countries at the edge of the Arctic, covered by The New York Times and CNN.</p><h3>ENEV Travel · operator</h3><p class="t">Étapes Nouvelles Egypte Voyages, licensed Egyptian operator for the river, the ground and the temples. Twenty-six years, six branches, over 1.7 million travellers.</p><h3>Egypt Eclipse LLC</h3><p class="t">The entity producing the Event with IMXP, through which partnerships are contracted. Bookings and participant terms at egypt-eclipse.com.</p></div><div class="folio"></div></div>
+    <div class="pg"><div class="mast"><span class="mb">Egypt Eclipse</span><span>Behind the Gathering</span></div><div class="feat"><div class="kick">Produced by</div><h2 class="sm">The team behind Iceland Eclipse.</h2><div class="cols2"><h3>IMXP · producer</h3><p class="t">Immersive Experiences produces the Eclipse Trilogy and is building the platform that runs it. Texas Eclipse 2024 under the Hill Country totality; Iceland Eclipse 2026, 4,200 people from 75 countries at the edge of the Arctic, covered by The New York Times and CNN.</p><h3>ENEV Travel · operator</h3><p class="t">Étapes Nouvelles Egypte Voyages, licensed Egyptian operator for the river, the ground and the temples. Twenty-six years, six branches, over 1.7 million travellers.</p><h3>Egypt Eclipse LLC</h3><p class="t">The entity producing the Event with IMXP, through which partnerships are contracted. Bookings and participant terms at egypt-eclipse.com.</p></div></div><div class="foot"><span>The Partnership · 2027</span><span class="pn"></span></div></div>
   </div>
 
   <div class="page leafimg">
-    <div class="pg"><div class="photo"><video class="clip" data-clip="giza" poster="media/clips/giza-poster.jpg" muted loop playsinline preload="none" aria-label="A painted approach to the Pyramids of Giza"></video></div><div class="cap"><div class="rh"><span class="sec">Next step</span><span class="pn"></span></div><div class="rule"></div><h2 class="sm">Let’s design your moment in Egypt.</h2><p class="lead">A 30-minute call to shape a partnership around your goals. Presenting and signature positions close first.</p><p class="t"><b>Mitch Morales</b> · Founder &amp; CEO, IMXP<br>mitch@imxp.org · +1 512 638 5946</p><p class="t"><b>Joshua Barber</b> · Director of Special Projects<br>joshua@im-xp.com · +1 832 265 5735</p><p class="when">egypt-eclipse.com</p></div></div>
+    <div class="pg"><div class="photo"><video class="clip" data-clip="giza" poster="media/clips/giza-poster.jpg" muted loop playsinline preload="none" aria-label="A painted approach to the Pyramids of Giza"></video></div><div class="fr2"></div><div class="cap"><div class="mast"><span class="mb">Egypt Eclipse</span><span>Next Step</span></div><div class="kick">Let’s talk</div><h2 class="sm">Design your moment in Egypt.</h2><p class="deck">A 30-minute call to shape a partnership around your goals. Presenting and signature positions close first.</p><p class="t"><b>Mitch Morales</b> · Founder &amp; CEO, IMXP · mitch@imxp.org · +1 512 638 5946</p><p class="t"><b>Joshua Barber</b> · Director of Special Projects · joshua@im-xp.com · +1 832 265 5735</p><p class="when">egypt-eclipse.com</p></div></div>
   </div>
 
   <div class="page hard back">
-    <div class="pg"><div class="cov back"><img class="art" src="media/cover.webp" alt="" style="filter:brightness(.42) saturate(.85)"><div class="vig" style="background:linear-gradient(180deg,rgba(6,5,3,.62),rgba(6,5,3,.78))"></div><div class="ln">Everyone who comes is there for the same six minutes.</div><div class="site">egypt-eclipse.com</div></div></div>
+    <div class="pg"><div class="cov back"><img class="art" src="media/sphinx-night.jpg" alt=""><div class="scrim"></div><div class="mid"><div class="q">Everyone who comes is there for the same six minutes.</div><div class="site">egypt-eclipse.com</div></div></div></div>
   </div>
 
-  </div><div class="thick right" aria-hidden="true"></div><div class="thick bottom" aria-hidden="true"></div><div class="thick spine" aria-hidden="true"></div></div>
+  </div></div>
 </div>
 <button class="nav prev" id="prev" aria-label="Previous page">‹</button>
 <button class="nav next" id="next" aria-label="Next page">›</button>
@@ -331,21 +258,20 @@
     const saveData=!!(navigator.connection&&navigator.connection.saveData);
     const small=()=>innerWidth<=640;
     const clips=[...document.querySelectorAll('video.clip')];
-    const pf=new St.PageFlip(el,{width:440,height:628,size:'stretch',minWidth:400,maxWidth:600,minHeight:560,maxHeight:980,
-      drawShadow:true,maxShadowOpacity:.55,showCover:true,usePortrait:true,autoSize:false,mobileScrollSupport:false,
-      flippingTime:reduce?0:900,swipeDistance:18,clickEventForward:true});
+    const pf=new St.PageFlip(el,{width:440,height:611,size:'stretch',minWidth:400,maxWidth:620,minHeight:556,maxHeight:980,
+      drawShadow:true,maxShadowOpacity:.5,showCover:true,usePortrait:true,autoSize:false,mobileScrollSupport:false,
+      flippingTime:reduce?0:850,swipeDistance:18,clickEventForward:true});
     pf.loadFromHTML(pages);
     const total=pf.getPageCount();
-    // folios: number content pages (skip hard covers + title) with roman numerals
     let fnum=0;
-    pages.forEach(p=>{ if(p.classList.contains('hard')||p.classList.contains('titlepage'))return; fnum++;
-      const r=roman(fnum); const fo=p.querySelector('.folio'); if(fo)fo.textContent='❖  '+r+'  ❖'; const pn=p.querySelector('.pn'); if(pn)pn.textContent=r; });
+    pages.forEach(p=>{ if(p.classList.contains('hard'))return; fnum++; const r=roman(fnum);
+      p.querySelectorAll('.pn').forEach(e=>e.textContent=r); });
     const prev=document.getElementById('prev'),next=document.getElementById('next'),hud=document.getElementById('folioHud');
     function playClips(){const cur=pf.getCurrentPageIndex();
       clips.forEach(v=>{const pg=v.closest('.page');const idx=pg?+pg.dataset.idx:-9;const near=Math.abs(idx-cur)<=1;
         if(near&&!reduce&&!saveData&&!document.hidden){if(!v.dataset.ready){v.dataset.ready='1';v.src='media/clips/'+v.dataset.clip+(small()?'-640':'-1280')+'.mp4';try{v.load();}catch(e){}}const pr=v.play();if(pr&&pr.catch)pr.catch(()=>{});}else{try{v.pause();}catch(e){}}});}
     function upd(){const i=pf.getCurrentPageIndex();document.body.classList.toggle('opened',i>0);
-      prev.disabled=i<=0;next.disabled=i>=total-1;hud.textContent=(i===0||i>=total-1)?'':'Leaf '+i+' of '+(total-2);playClips();}
+      prev.disabled=i<=0;next.disabled=i>=total-1;hud.textContent=(i===0||i>=total-1)?'':'Page '+i+' of '+(total-2);playClips();}
     pf.on('flip',upd);pf.on('changeState',upd);document.addEventListener('visibilitychange',playClips);
     prev.addEventListener('click',()=>pf.flipPrev());next.addEventListener('click',()=>pf.flipNext());
     document.addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();pf.flipNext();}else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();pf.flipPrev();}else if(e.key==='Home')pf.flip(0);else if(e.key==='End')pf.flip(total-1);});
