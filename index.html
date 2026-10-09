@@ -15,7 +15,7 @@
 <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
 <style>
   :root{
-    --ink:#2c1f12; --ink-soft:#5a4729;
+    --ink:#231a0c; --ink-soft:#4b3a20;
     --gold:#b8893b; --gold-br:#e8c572; --gold-dp:#8a5e1e;
     --gold-foil:linear-gradient(180deg,#f6de9b 0%,#d8ab4f 38%,#c6912f 62%,#8a5e1e 100%);
     --leather:#17140d; --ember:#a8441d; --reed:#4c5e3b;
@@ -50,21 +50,19 @@
     background:linear-gradient(90deg,#1a150d,#372a18 50%,#0c0a06);box-shadow:inset 0 0 16px rgba(0,0,0,.7)}
 
   /* ===== papyrus page ===== */
-  .page{container-type:size;overflow:hidden;color:var(--ink);background-color:#e6d3a6;
+  .page{container-type:size;overflow:hidden;color:var(--ink);background-color:#e9d8ad;
     background-image:
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 70'%3E%3Cg fill='none' stroke='%238a6a3a' stroke-width='2' opacity='0.42'%3E%3Cpath d='M150 30 q-40 -6 -78 2 q-30 6 -58 16 M150 38 q-40 2 -78 12 M150 46 q-34 6 -66 16'/%3E%3Cpath d='M150 30 q40 -6 78 2 q30 6 58 16 M150 38 q40 2 78 12 M150 46 q34 6 66 16'/%3E%3C/g%3E%3Cg opacity='0.5'%3E%3Ccircle cx='150' cy='34' r='12' fill='%23a8441d'/%3E%3Ccircle cx='150' cy='34' r='12' fill='none' stroke='%238a6a3a' stroke-width='2'/%3E%3C/g%3E%3C/svg%3E"),
-      linear-gradient(114deg,transparent 0 17%,rgba(255,250,232,.10) 18% 19%,transparent 20% 46%,rgba(78,52,18,.055) 49% 50%,transparent 52% 100%),
-      linear-gradient(250deg,transparent 0 31%,rgba(255,250,232,.08) 32% 33%,transparent 34% 72%,rgba(78,52,18,.05) 74% 75%,transparent 77% 100%),
-      radial-gradient(56% 42% at 82% 9%,rgba(120,82,28,.13),transparent 62%),
-      radial-gradient(48% 44% at 9% 90%,rgba(120,82,28,.16),transparent 60%),
-      radial-gradient(130% 120% at 84% 5%,rgba(255,248,224,.45),transparent 42%),
-      repeating-linear-gradient(90deg,rgba(150,112,54,.05) 0 2px,transparent 2px 7px),
-      repeating-linear-gradient(0deg,rgba(116,84,38,.065) 0 3px,transparent 3px 9px),
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='170' height='170'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 0.36 0 0 0 0 0.26 0 0 0 0 0.12 0 0 0 0.1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    background-repeat:no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,repeat,repeat,repeat;
-    background-position:center 2.6cqh,center,center,center,center,center,center,center,center;
-    background-size:38cqh auto,auto,auto,auto,auto,auto,auto,auto,auto;
-    box-shadow:inset 0 0 6cqh rgba(92,62,24,.44),inset 0 0 1.4cqh rgba(60,40,14,.52)}
+      radial-gradient(66% 52% at 50% 46%,rgba(249,242,220,.55),transparent 72%),
+      linear-gradient(114deg,transparent 0 17%,rgba(255,250,232,.05) 18% 19%,transparent 20% 46%,rgba(78,52,18,.03) 49% 50%,transparent 52% 100%),
+      radial-gradient(56% 40% at 84% 8%,rgba(120,82,28,.10),transparent 62%),
+      radial-gradient(46% 42% at 8% 92%,rgba(120,82,28,.11),transparent 60%),
+      repeating-linear-gradient(0deg,rgba(116,84,38,.045) 0 3px,transparent 3px 9px),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='170' height='170'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 0.36 0 0 0 0 0.26 0 0 0 0 0.12 0 0 0 0.055 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat:no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,repeat,repeat;
+    background-position:center 2cqh,center,center,center,center,center,center;
+    background-size:30cqh auto,auto,auto,auto,auto,auto,auto;
+    box-shadow:inset 0 0 6cqh rgba(92,62,24,.4),inset 0 0 1.4cqh rgba(60,40,14,.5)}
   .page .pg{position:relative;width:100%;height:100%;padding:6.4cqh 8cqw 7.4cqh;display:flex;flex-direction:column}
   .page .pg::before{content:"";position:absolute;inset:3.2cqh 5cqw;border:1px solid rgba(138,94,30,.4);pointer-events:none}
   /* bottom lotus frieze */
@@ -134,25 +132,25 @@
   .leafimg .pg::after{display:none}
   .leafimg .photo{position:absolute;inset:0}
   .leafimg .photo img,.leafimg .photo video{width:100%;height:100%;object-fit:cover}
-  .leafimg .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,10,4,.42) 0%,rgba(14,10,4,.05) 32%,rgba(14,10,4,.5) 60%,rgba(14,10,4,.92) 100%)}
-  .leafimg .cap{position:absolute;left:0;right:0;bottom:0;z-index:4;padding:6cqh 8cqw 7cqh;color:#f6ecd6}
-  .leafimg .rh{color:var(--gold-br)}
-  .leafimg h2{color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.6)}
-  .leafimg .lead{color:#f3e7cf;text-shadow:0 1px 10px rgba(0,0,0,.6)}
-  .leafimg .when{font-family:var(--cap);font-size:1.85cqh;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-br);margin-top:1.2cqh}
-  .leafimg .fn{color:#e7dcc6cc}
-  .leafimg .rule::after{background:#241a0e}
-  .leafimg p.t{color:#f3e7cf}
+  .leafimg .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,7,2,.34) 0%,rgba(10,7,2,.04) 26%,rgba(10,7,2,.5) 52%,rgba(10,7,2,.96) 100%)}
+  .leafimg .cap{position:absolute;left:0;right:0;bottom:0;z-index:4;padding:9cqh 8cqw 7cqh;color:#faf1dd;
+    background:linear-gradient(180deg,transparent 0%,rgba(8,6,2,.66) 30%,rgba(8,6,2,.9) 70%)}
+  .leafimg .rh{color:var(--gold-br);text-shadow:0 1px 6px rgba(0,0,0,.8)}
+  .leafimg .rule{background:linear-gradient(90deg,transparent,var(--gold-br) 12%,var(--gold-br) 88%,transparent);opacity:.8}
+  .leafimg h2{color:#fff;text-shadow:0 2px 4px rgba(0,0,0,.9),0 2px 20px rgba(0,0,0,.7)}
+  .leafimg .lead{color:#fbf2e0;text-shadow:0 1px 3px rgba(0,0,0,.95),0 1px 12px rgba(0,0,0,.7)}
+  .leafimg .when{font-family:var(--cap);font-size:1.85cqh;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-br);margin-top:1.2cqh;text-shadow:0 1px 6px rgba(0,0,0,.9)}
+  .leafimg .fn{color:#efe4cedd;text-shadow:0 1px 5px rgba(0,0,0,.9)}
+  .leafimg .rule::after{background:#120c05}
+  .leafimg p.t{color:#fbf2e0;text-shadow:0 1px 3px rgba(0,0,0,.95),0 1px 10px rgba(0,0,0,.6)}
 
   /* ===== carved Egyptian COVER / BACK ===== */
   .page.hard{background:#14110b;color:#f0dca8}
   .page.hard .pg{padding:0}
   .page.hard .pg::before,.page.hard .pg::after{display:none}
-  .cov{position:absolute;inset:0;overflow:hidden;
-    background:
-      radial-gradient(120% 120% at 32% 20%,#2a241c 0%,#1a150e 46%,#0d0a06 100%),
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.08 0 0 0 0 0.05 0 0 0 0 0.02 0 0 0 0.6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    background-blend-mode:normal,overlay}
+  .cov{position:absolute;inset:0;overflow:hidden;background:#0c0906}
+  .cov .art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .cov .vig{position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(6,5,3,.16) 0%,transparent 26%,transparent 52%,rgba(6,5,3,.55) 80%,rgba(6,5,3,.9) 100%)}
   /* cracked-stone veins */
   .cov .cracks{position:absolute;inset:0;opacity:.5}
   /* bronze scroll-rod down the left */
@@ -220,7 +218,7 @@
 <div id="stage">
   <div id="book3d"><div id="book">
   <div class="page hard">
-    <div class="pg"><div class="cov"><svg class="cracks" viewBox="0 0 100 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="#000" stroke-width="0.5" opacity="0.6"><path d="M0 40 L30 55 L55 48 L80 66 L100 60 M20 0 L34 30 L28 60 L40 95 L30 140 M70 0 L62 36 L78 70 L68 110 L80 140 M55 48 L58 90 L75 120"/></g></svg><div class="rod"></div><div class="cartouche"><i style="top:6%"></i><i style="top:18%;left:28%;right:40%"></i><i style="top:28%"></i><i style="top:40%;left:30%;right:30%"></i><i style="top:52%"></i><i style="top:64%;left:26%;right:38%"></i><i style="top:76%"></i><i style="top:88%;left:34%;right:34%"></i></div><div class="medal"><div class="burst"></div><div class="oct"><div class="eye"></div></div></div><svg class='scarab b1' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><defs><linearGradient id='bz' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#d8af5e'/><stop offset='.5' stop-color='#8a6326'/><stop offset='1' stop-color='#3a2a12'/></linearGradient></defs><g fill='url(#bz)' stroke='#2a1d0c' stroke-width='1.5'><ellipse cx='50' cy='58' rx='22' ry='28'/><ellipse cx='50' cy='30' rx='12' ry='11'/><path d='M38 20 q-10 -10 -20 -8 M62 20 q10 -10 20 -8' fill='none' stroke-width='3'/><path d='M28 46 l-18 -6 M28 58 l-20 2 M28 70 l-16 10 M72 46 l18 -6 M72 58 l20 2 M72 70 l16 10' stroke-width='3' fill='none'/><path d='M50 32 L50 84' stroke-width='1.5'/></g></svg><svg class='scarab b2' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><defs><linearGradient id='bz' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#d8af5e'/><stop offset='.5' stop-color='#8a6326'/><stop offset='1' stop-color='#3a2a12'/></linearGradient></defs><g fill='url(#bz)' stroke='#2a1d0c' stroke-width='1.5'><ellipse cx='50' cy='58' rx='22' ry='28'/><ellipse cx='50' cy='30' rx='12' ry='11'/><path d='M38 20 q-10 -10 -20 -8 M62 20 q10 -10 20 -8' fill='none' stroke-width='3'/><path d='M28 46 l-18 -6 M28 58 l-20 2 M28 70 l-16 10 M72 46 l18 -6 M72 58 l20 2 M72 70 l16 10' stroke-width='3' fill='none'/><path d='M50 32 L50 84' stroke-width='1.5'/></g></svg><svg class='scarab b3' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><defs><linearGradient id='bz' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#d8af5e'/><stop offset='.5' stop-color='#8a6326'/><stop offset='1' stop-color='#3a2a12'/></linearGradient></defs><g fill='url(#bz)' stroke='#2a1d0c' stroke-width='1.5'><ellipse cx='50' cy='58' rx='22' ry='28'/><ellipse cx='50' cy='30' rx='12' ry='11'/><path d='M38 20 q-10 -10 -20 -8 M62 20 q10 -10 20 -8' fill='none' stroke-width='3'/><path d='M28 46 l-18 -6 M28 58 l-20 2 M28 70 l-16 10 M72 46 l18 -6 M72 58 l20 2 M72 70 l16 10' stroke-width='3' fill='none'/><path d='M50 32 L50 84' stroke-width='1.5'/></g></svg><div class="ttl"><div class="pre">Immersive Experiences presents</div><div class="title">EGYPT<br>ECLIPSE</div><div class="sub">The Partnership</div></div><div class="dates">Luxor &amp; the Nile · 2027</div></div></div>
+    <div class="pg"><div class="cov"><img class="art" src="media/cover.webp" alt="Egypt Eclipse, an ancient Egyptian tome"><div class="vig"></div><div class="ttl"><div class="title">EGYPT ECLIPSE</div><div class="sub">The Partnership</div></div><div class="dates">Luxor &amp; the Nile · 2027</div></div></div>
   </div>
 
   <div class="page titlepage">
@@ -320,7 +318,7 @@
   </div>
 
   <div class="page hard back">
-    <div class="pg"><div class="cov back"><div class="rod"></div><svg class='scarab b1' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><defs><linearGradient id='bz' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#d8af5e'/><stop offset='.5' stop-color='#8a6326'/><stop offset='1' stop-color='#3a2a12'/></linearGradient></defs><g fill='url(#bz)' stroke='#2a1d0c' stroke-width='1.5'><ellipse cx='50' cy='58' rx='22' ry='28'/><ellipse cx='50' cy='30' rx='12' ry='11'/><path d='M38 20 q-10 -10 -20 -8 M62 20 q10 -10 20 -8' fill='none' stroke-width='3'/><path d='M28 46 l-18 -6 M28 58 l-20 2 M28 70 l-16 10 M72 46 l18 -6 M72 58 l20 2 M72 70 l16 10' stroke-width='3' fill='none'/><path d='M50 32 L50 84' stroke-width='1.5'/></g></svg><svg class='scarab b2' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'><defs><linearGradient id='bz' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='#d8af5e'/><stop offset='.5' stop-color='#8a6326'/><stop offset='1' stop-color='#3a2a12'/></linearGradient></defs><g fill='url(#bz)' stroke='#2a1d0c' stroke-width='1.5'><ellipse cx='50' cy='58' rx='22' ry='28'/><ellipse cx='50' cy='30' rx='12' ry='11'/><path d='M38 20 q-10 -10 -20 -8 M62 20 q10 -10 20 -8' fill='none' stroke-width='3'/><path d='M28 46 l-18 -6 M28 58 l-20 2 M28 70 l-16 10 M72 46 l18 -6 M72 58 l20 2 M72 70 l16 10' stroke-width='3' fill='none'/><path d='M50 32 L50 84' stroke-width='1.5'/></g></svg><div class="medal" style="top:20cqh;transform:translateX(-50%);left:50%"><div class="burst"></div><div class="oct"><div class="eye"></div></div></div><div class="ln">Everyone who comes is there for the same six minutes.</div><div class="site">egypt-eclipse.com</div></div></div>
+    <div class="pg"><div class="cov back"><img class="art" src="media/cover.webp" alt="" style="filter:brightness(.42) saturate(.85)"><div class="vig" style="background:linear-gradient(180deg,rgba(6,5,3,.62),rgba(6,5,3,.78))"></div><div class="ln">Everyone who comes is there for the same six minutes.</div><div class="site">egypt-eclipse.com</div></div></div>
   </div>
 
   </div><div class="thick right" aria-hidden="true"></div><div class="thick bottom" aria-hidden="true"></div><div class="thick spine" aria-hidden="true"></div></div>
