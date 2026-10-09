@@ -76,6 +76,8 @@ CSS = """
   /* full-bleed hero image/clip band at the top of a feature */
   .hero{position:relative;width:calc(100% + 14cqw);margin:0 -7cqw 2.2cqh;overflow:hidden;box-shadow:0 1cqh 2.6cqh rgba(80,50,15,.2)}
   .hero img,.hero video{display:block;width:100%;height:100%;object-fit:cover}
+  .hero.contain{background:#13100a}
+  .hero.contain img{object-fit:contain}
   .hero figcaption{position:absolute;left:0;right:0;bottom:0;padding:3.4cqh 7cqw .8cqh;font-family:var(--cap);font-size:1.25cqh;letter-spacing:.1em;text-transform:uppercase;color:#f3e6c4;background:linear-gradient(180deg,transparent,rgba(10,8,4,.68))}
   /* closing founders block */
   .founders{display:grid;grid-template-columns:1fr 1fr;gap:4cqw;margin:2cqh 0 1cqh;text-align:center}
@@ -179,8 +181,8 @@ def leaf_clip(clip,alt,capinner):
     return ('<div class="photo"><video class="clip" data-clip="%s" poster="media/clips/%s-poster.jpg" muted loop playsinline preload="none" aria-label="%s"></video></div><div class="fr2"></div><div class="cap">%s</div>'%(clip,clip,alt,capinner))
 def leaf_img(src,alt,capinner):
     return ('<div class="photo"><img src="media/%s" loading="lazy" alt="%s"></div><div class="fr2"></div><div class="cap">%s</div>'%(src,alt,capinner))
-def hero_img(src,cap,h=34):
-    return '<figure class="hero" style="height:%gcqh"><img src="media/%s" loading="lazy" alt="%s"><figcaption>%s</figcaption></figure>'%(h,src,cap,cap)
+def hero_img(src,cap,h=34,cls=""):
+    return '<figure class="hero%s" style="height:%gcqh"><img src="media/%s" loading="lazy" alt="%s"><figcaption>%s</figcaption></figure>'%((" "+cls) if cls else "",h,src,cap,cap)
 def hero_clip(clip,cap,alt,h=34):
     return ('<figure class="hero" style="height:%gcqh"><video class="clip" data-clip="%s" poster="media/clips/%s-poster.jpg" muted loop playsinline preload="none" aria-label="%s"></video><figcaption>%s</figcaption></figure>'%(h,clip,clip,alt,cap))
 
@@ -216,7 +218,7 @@ P.append(page(feat("The Moment",
 
 # 2 · THE ROOM
 P.append(page(feat("The Room",
- hero_img("jaz-crown-prince.jpg","The Jaz Crown Prince on the Nile",24)+
+ hero_img("jaz-crown-prince.jpg","The Jaz Crown Prince on the Nile",28,"contain")+
  '<div class="kick">Who is in the room</div>'
  '<h2>Mobile, liquid, and <em>already in motion.</em></h2>'
  '<div class="cols2">'
